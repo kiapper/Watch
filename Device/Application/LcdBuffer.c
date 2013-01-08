@@ -15,7 +15,7 @@ const unsigned char pTimeColonL[1][19*1];
 
 extern tLcdLine pMyBuffer[NUM_LCD_ROWS];
 
-static unsigned char BitRev8(unsigned char byte);
+unsigned char BitRev8(unsigned char byte);
 
 unsigned char const* GetPointerForTimeDigit(unsigned char Digit,
                                                    unsigned char Offset)
@@ -139,7 +139,7 @@ const unsigned char ByteRevTable[256] = {
         0x1f, 0x9f, 0x5f, 0xdf, 0x3f, 0xbf, 0x7f, 0xff,
 };
 
-static unsigned char BitRev8(unsigned char byte)
+unsigned char BitRev8(unsigned char byte)
 {
     return ByteRevTable[byte];
 }

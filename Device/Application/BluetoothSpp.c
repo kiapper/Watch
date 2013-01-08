@@ -35,7 +35,7 @@ static tHostMsg* pBluetoothSppMsg;
 /* a buffer is used so that the code does not have to wait for the uart
  * to be empty
  */
-#define BT_TX_BUFFER_SIZE  (255)
+#define BT_TX_BUFFER_SIZE  (128)
 static unsigned char TxBuffer[BT_TX_BUFFER_SIZE];
 static volatile unsigned char WriteIndex;
 static volatile unsigned char ReadIndex;
@@ -51,7 +51,7 @@ enum {
     MSG_RECV_DATA_LINK_ESCAPE,
 };
 
-#define MSG_START_BYTE_VALUE        (0x01)
+#define MSG_START_BYTE_VALUE        HOST_MSG_START_FLAG
 #define DATA_LINK_ESCAPE_VALUE      (0x10)
 
 static tHostMsg BtRecvMsg;
@@ -101,13 +101,13 @@ void BtRxTxIntHandler(void)
     }
 }
 
-static void WriteTxBuffer(signed char * const pBuf)
+static void WriteTxBuffer_(signed char * const pBuf, unsigned char Size)
 {
     unsigned char i = 0;
     unsigned char LocalCount = TxCount;
 
     /* if there isn't enough room in the buffer then characters are lost */
-    while (pBuf[i] != '\0' && LocalCount < BT_TX_BUFFER_SIZE) {
+    while (i < Size && LocalCount < BT_TX_BUFFER_SIZE) {
         TxBuffer[WriteIndex] = pBuf[i++];
         IncrementWriteIndex();
         LocalCount++;
@@ -124,6 +124,15 @@ static void WriteTxBuffer(signed char * const pBuf)
             TxCount--;
         }
         UARTIntEnable(UART1_BASE, UART_INT_TX);
+    }
+}
+
+static void WriteTxBuffer(unsigned char * const pBuf, unsigned char Size)
+{
+    unsigned char i;
+
+    for (i = 0; i < Size; i++) {
+        UARTCharPut(UART1_BASE, pBuf[i++]);
     }
 }
 
@@ -152,10 +161,12 @@ static void BTRxTask(void *pvParameters)
 
                     pMsgRecvBuffer[MsgRecvIndex++] = ucData;
 
-                    if (MsgRecvIndex >= HOST_MSG_BUFFER_LENGTH) {
+                    if (MsgRecvIndex > HOST_MSG_BUFFER_LENGTH) {
                         BtMsgLastRecvState = MSG_RECV_STOP;
                         MsgRecvIndex = 0;
-                    } else if (BtRecvMsg.Length != 0 &&  MsgRecvIndex >= BtRecvMsg.Length) {
+                    }
+
+                    if (BtRecvMsg.Length <= HOST_MSG_BUFFER_LENGTH && MsgRecvIndex == BtRecvMsg.Length) {
                         unsigned char i;
                         unsigned char *out;
 
@@ -166,14 +177,10 @@ static void BTRxTask(void *pvParameters)
                         out = (unsigned char *)pOutgoingMsg;
                         for (i = 0; i < BtRecvMsg.Length; i++) {
                             out[i] = pMsgRecvBuffer[i];
-//                            PrintHex(out[i]);
+                           // PrintHex(out[i]);
                         }
-//                        {
-//                            void PrintMessageType(tHostMsg* pMsg);
-//                            PrintMessageType(pOutgoingMsg);
-//                        }
 
-//                        RouteMsg(&pOutgoingMsg);
+                        RouteMsg(&pOutgoingMsg);
                     }
                 } else {
                     BtMsgLastRecvState = MSG_RECV_DATA_LINK_ESCAPE;
@@ -190,11 +197,8 @@ static void BTRxTask(void *pvParameters)
 
 static void BTTxTask(void *pvParameters)
 {
-    unsigned char ucData;
-    unsigned char DataWrite[2] = { 0, 0 };
-
 //    WriteTxBuffer("AT");
-//     WriteTxBuffer("AT+NAMEAirRemote");
+//    WriteTxBuffer("AT+NAMEAirRemote");
 //    WriteTxBuffer("AT+BAUD8");
 
     if ( QueueHandles[SPP_TASK_QINDEX] == 0 )
@@ -213,13 +217,29 @@ static void BTTxTask(void *pvParameters)
     }
 }
 
+static void SendHostMessage(tHostMsg* pMsg)
+{
+    unsigned char i;
+    unsigned char *pData = (unsigned char *)pMsg;
+    unsigned char Esc = DATA_LINK_ESCAPE_VALUE;
+
+    WriteTxBuffer(pData, 1);
+
+    for (i = 1; i < pMsg->Length; i++) {
+        if (pData[i] == MSG_START_BYTE_VALUE || pData[i] == DATA_LINK_ESCAPE_VALUE) {
+            WriteTxBuffer(&Esc, 1);
+        }
+        WriteTxBuffer(&(pData[i]), 1);
+    }
+}
+
 /*! Handle the messages routed to the bluetooth spp task */
 static void BluetoothSppMessageHandler(tHostMsg* pMsg)
 {
     eMessageType Type = (eMessageType)pMsg->Type;
     switch (Type) {
     case GetDeviceTypeResponse:
-
+//        SendHostMessage(pMsg);
         break;
     }
 }
@@ -235,9 +255,9 @@ static void InitBtUart(void)
 
 //    IntRegister(INT_UART1, BtRxTxIntHandler);
 
-    UARTFIFODisable(UART1_BASE);
+//    UARTFIFODisable(UART1_BASE);
 
-    UARTIntEnable(UART1_BASE, UART_INT_TX);
+//    UARTIntEnable(UART1_BASE, UART_INT_TX);
     UARTIntEnable(UART1_BASE, UART_INT_RX | UART_INT_RT);
     IntEnable(INT_UART1);
 }

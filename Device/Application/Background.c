@@ -17,7 +17,7 @@ static void BackgroundTask(void *pvParameters);
 static void BackgroundMessageHandler(tHostMsg* pMsg);
 
 #define BACKGROUND_MSG_QUEUE_LEN   8
-#define BACKGROUND_STACK_DEPTH	    (configMINIMAL_STACK_SIZE + 50)
+#define BACKGROUND_STACK_DEPTH	   (configMINIMAL_STACK_SIZE + 50)
 #define BACKGROUND_TASK_PRIORITY   (tskIDLE_PRIORITY + 1)
 
 xTaskHandle xBkgTaskHandle;

@@ -29,18 +29,19 @@
 ### List of Objects: adding '"utilities.o"'
 ### List of Objects: adding '"bluetoothspp.o"'
 ### List of Objects: adding '"background.o"'
+### List of Objects: adding '"framebuffer.o"'
 ### List of Objects: adding '"..\Hardware\DriverLib\driverlib.lib"'
 ### List of Objects: adding '"hal_rtc.o"'
 ### List of Objects: adding '"hal_battery.o"'
 ### List of Objects: adding '"rit128x96x4.o"'
 ### ADS-LD Command completed:
---cpu Cortex-M3 "croutine.o" "list.o" "queue.o" "tasks.o" "timers.o" "heap_2.o" "port.o" "debuguart.o" "main.o" ".\startup.o" "lcdtask.o" "lcddisplay.o" "messagequeues.o" "lcdbuffer.o" "bufferpool.o" "huffmanengtext.o" "statistics.o" "fonts.o" "icons.o" "idlepage.o" "idlepagemain.o" "display.o" "onesecondtimers.o" "commandtask.o" "crc16.o" "utilities.o" "bluetoothspp.o" "background.o" "..\Hardware\DriverLib\driverlib.lib" "hal_rtc.o" "hal_battery.o" "rit128x96x4.o" --ro-base 0x00000000 --entry 0x00000000 --rw-base 0x20000000 --entry Reset_Handler --first __Vectors --strict --autoat --summary_stderr --info summarysizes --map --xref --callgraph --symbols 
+--cpu Cortex-M3 "croutine.o" "list.o" "queue.o" "tasks.o" "timers.o" "heap_2.o" "port.o" "debuguart.o" "main.o" ".\startup.o" "lcdtask.o" "lcddisplay.o" "messagequeues.o" "lcdbuffer.o" "bufferpool.o" "huffmanengtext.o" "statistics.o" "fonts.o" "icons.o" "idlepage.o" "idlepagemain.o" "display.o" "onesecondtimers.o" "commandtask.o" "crc16.o" "utilities.o" "bluetoothspp.o" "background.o" "framebuffer.o" "..\Hardware\DriverLib\driverlib.lib" "hal_rtc.o" "hal_battery.o" "rit128x96x4.o" --ro-base 0x00000000 --entry 0x00000000 --rw-base 0x20000000 --entry Reset_Handler --first __Vectors --strict --autoat --summary_stderr --info summarysizes --map --xref --callgraph --symbols 
 --info sizes --info totals --info unused --info veneers 
  --list ".\WatchDemo.map" -o "WatchDemo.axf"### Preparing Environment (PrepEnvAds)
 ### ADS-LD Output File: 'WatchDemo.axf'
 ### ADS-LD Command File: 'WatchDemo.lnp'
 ### Checking for dirty Components...
-### Creating CmdFile 'WatchDemo.lnp', Handle=0x0000021C
+### Creating CmdFile 'WatchDemo.lnp', Handle=0x00000228
 ### Writing '.lnp' file
 ### ADS-LD Command file 'WatchDemo.lnp' is ready.
 ### ADS-LD: About to start ADS-LD Thread.

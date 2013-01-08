@@ -12,10 +12,10 @@
 #include "DebugUart.h"
 
 #define LCD_TASK_MSG_QUEUE_LEN   12
-#define LCD_TASK_STACK_DEPTH     (configMINIMAL_STACK_SIZE + 20)
+#define LCD_TASK_STACK_DEPTH     (configMINIMAL_STACK_SIZE + 120)
 #define LCD_TASK_TASK_PRIORITY   (tskIDLE_PRIORITY + 1)
 
-extern void WatchUpdateDisplay(unsigned char *pMyDisplay, int totalLines);
+extern void WriteLineToLcd(unsigned char *pMyDisplay, unsigned char row, unsigned char totalLines);
 /******************************************************************************/
 static void LcdTask(void *pvParameters);
 static void LcdTaskMessageHandler(tHostMsg* pMsg);
@@ -27,7 +27,6 @@ static void UpdateMyDisplayHandler(tHostMsg* pMsg);
 
 xTaskHandle LcdTaskHandle;
 /******************************************************************************/
-static void WriteLineToLcd(unsigned char* pData,unsigned char Size);
 
 static void LcdPeripheralInit(void)
 {
@@ -107,20 +106,19 @@ static void UpdateMyDisplayHandler(tHostMsg* pMsg)
 {
     tUpdateMyDisplayMsg* pUpdateMyDisplayMessage = (tUpdateMyDisplayMsg*)pMsg;
 
-    WatchUpdateDisplay(pUpdateMyDisplayMessage->pMyDisplay,
-                       pUpdateMyDisplayMessage->TotalLines);
+    WriteLineToLcd(pUpdateMyDisplayMessage->pMyDisplay,
+                   0,
+                   pUpdateMyDisplayMessage->TotalLines);
 }
 
 /*! Writes a single line to the LCD */
 static void WriteLcdHandler(tHostMsg* pMsg)
 {
+    tLcdMessage* pLcdMessage = (tLcdMessage*)pMsg;
+    WriteLineToLcd(pLcdMessage->pLine, pLcdMessage->RowNumber, 1);
 }
 
 static void ClearLcdHandler(void)
 {
     RIT128x96x4Clear();
-}
-
-static void WriteLineToLcd(unsigned char* pData,unsigned char Size)
-{
 }

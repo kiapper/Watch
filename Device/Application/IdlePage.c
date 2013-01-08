@@ -63,7 +63,7 @@ void IdlePageHandler(struct IdlePage const * Page)
 		switch(update)
 		{
 		case IDLE_UPDATE_FULL_SCREEN:
-		    PrepareMyBufferForLcd(STARTING_ROW,NUM_LCD_ROWS);
+		    PrepareMyBufferForLcd(STARTING_ROW, NUM_LCD_ROWS);
 		    SendMyBufferToLcd(NUM_LCD_ROWS);
 		    break;
 		case IDLE_UPDATE_TOP_ONLY:

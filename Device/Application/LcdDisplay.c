@@ -13,6 +13,7 @@
 #include "Display.h"
 #include "IdlePage.h"
 #include "IdlePageMain.h"
+#include "FrameBuffer.h"
 #include "hal_lcd.h"
 
 #define DISPLAY_TASK_QUEUE_LENGTH   8
@@ -24,6 +25,7 @@ extern const unsigned char pMetaWatchSplash[NUM_LCD_ROWS*NUM_LCD_COL_BYTES];
 xTaskHandle DisplayHandle;
 
 static void DisplayQueueMessageHandler(tHostMsg* pMsg);
+static void ConfigureIdleBuferSizeHandler(tHostMsg* pMsg);
 void SendMyBufferToLcd(unsigned char TotalRows);
 
 static tHostMsg* pDisplayMsg;
@@ -113,6 +115,8 @@ static void DisplayTask(void *pvParameters)
 
     SetupSplashScreenTimeout();
 
+    InitialiazeFrameBuffer();
+
     while (1) {
         if ( pdTRUE == xQueueReceive(QueueHandles[DISPLAY_QINDEX],
                                 &pDisplayMsg, portMAX_DELAY) ) {
@@ -133,9 +137,24 @@ static void DisplayQueueMessageHandler(tHostMsg* pMsg)
         IdlePageHandler(&IdlePageMain);
         break;
 
+    case ConfigureMode:
+        break;
+
+    case ConfigureIdleBufferSize:
+        ConfigureIdleBuferSizeHandler(pMsg);
+        break;
+
     case SplashTimeoutMsg:
         AllowConnectionStateChangeToUpdateScreen = 1;
 	    IdlePageHandler(&IdlePageMain);
+        break;
+
+    case WriteBuffer:
+        WriteBufferHandler(pMsg);
+        break;
+
+    case UpdateDisplay:
+        UpdateDisplayHandler(pMsg);
         break;
 
     default:
@@ -172,6 +191,16 @@ unsigned char GetIdleBufferConfiguration(void)
   return nvIdleBufferConfig;
 }
 
+static void ConfigureIdleBuferSizeHandler(tHostMsg* pMsg)
+{
+  nvIdleBufferConfig = pMsg->pPayload[0] & IDLE_BUFFER_CONFIG_MASK;
+
+  if ( nvIdleBufferConfig == WATCH_CONTROLS_TOP )
+  {
+	  IdlePageHandler(&IdlePageMain);
+  }
+}
+
 void SendMyBufferToLcd(unsigned char TotalRows)
 {
     tHostMsg* pOutgoingMsg;
@@ -180,6 +209,7 @@ void SendMyBufferToLcd(unsigned char TotalRows)
     ((tUpdateMyDisplayMsg*)pOutgoingMsg)->Type = UpdateMyDisplayLcd;
     ((tUpdateMyDisplayMsg*)pOutgoingMsg)->TotalLines = TotalRows;
     ((tUpdateMyDisplayMsg*)pOutgoingMsg)->pMyDisplay = (unsigned char*)pMyBuffer;
+
     RouteMsg(&pOutgoingMsg);
 }
 

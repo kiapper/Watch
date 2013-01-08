@@ -697,12 +697,14 @@ RIT128x96x4ImageDraw(const unsigned char *pucImage, unsigned long ulX,
     }
 }
 
-void WatchUpdateDisplay(unsigned char *pMyDisplay, int totalLines)
+static unsigned char RowPixels[48];
+
+void WriteLineToLcd(unsigned char *pMyDisplay, unsigned char row, unsigned char totalLines)
 {
     tLcdLine *line;
     unsigned char i;
     unsigned char X = (128 - 96) / 2;
-    unsigned char Y = 0;
+    unsigned char Y = row;
     unsigned char Width = 96;
     unsigned char Height = totalLines;
 
@@ -721,33 +723,21 @@ void WatchUpdateDisplay(unsigned char *pMyDisplay, int totalLines)
     line = (tLcdLine *)pMyDisplay;
     for (i = 0; i < totalLines; i++) {
         unsigned char j;
-        unsigned char rowPixels[48];
-        memset(rowPixels, 0, 48);
+        memset(RowPixels, 0, 48);
         for (j = 0; j < NUM_LCD_COL_BYTES; j++) {
-            unsigned char pixels[4] = { 0x00, 0x00, 0x00, 0x00 };
             unsigned char pixel = line->Data[j];
-            if (pixel & 0x80) pixels[0] |= 0xF0;
-            if (pixel & 0x40) pixels[0] |= 0x0F;
-            if (pixel & 0x20) pixels[1] |= 0xF0;
-            if (pixel & 0x10) pixels[1] |= 0x0F;
-            if (pixel & 0x08) pixels[2] |= 0xF0;
-            if (pixel & 0x04) pixels[2] |= 0x0F;
-            if (pixel & 0x02) pixels[3] |= 0xF0;
-            if (pixel & 0x01) pixels[3] |= 0x0F;
 
-            if (pixel & 0x80) rowPixels[4*j+0] |= 0xF0;
-            if (pixel & 0x40) rowPixels[4*j+0] |= 0x0F;
-            if (pixel & 0x20) rowPixels[4*j+1] |= 0xF0;
-            if (pixel & 0x10) rowPixels[4*j+1] |= 0x0F;
-            if (pixel & 0x08) rowPixels[4*j+2] |= 0xF0;
-            if (pixel & 0x04) rowPixels[4*j+2] |= 0x0F;
-            if (pixel & 0x02) rowPixels[4*j+3] |= 0xF0;
-            if (pixel & 0x01) rowPixels[4*j+3] |= 0x0F;
-
-//            RITWriteData(pixels, sizeof(pixels));
+            if (pixel & 0x80) RowPixels[4*j+0] |= 0xF0;
+            if (pixel & 0x40) RowPixels[4*j+0] |= 0x0F;
+            if (pixel & 0x20) RowPixels[4*j+1] |= 0xF0;
+            if (pixel & 0x10) RowPixels[4*j+1] |= 0x0F;
+            if (pixel & 0x08) RowPixels[4*j+2] |= 0xF0;
+            if (pixel & 0x04) RowPixels[4*j+2] |= 0x0F;
+            if (pixel & 0x02) RowPixels[4*j+3] |= 0xF0;
+            if (pixel & 0x01) RowPixels[4*j+3] |= 0x0F;
         }
 
-        RITWriteData(rowPixels, sizeof(rowPixels));
+        RITWriteData(RowPixels, sizeof(RowPixels));
         line++;
     }
 }

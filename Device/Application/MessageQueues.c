@@ -312,10 +312,10 @@ static void Route(tHostMsg* pMsg, unsigned char FromIsr)
     case GeneralPurposePhoneMsg:        SendMsgToQ(SPP_TASK_QINDEX,&pMsg);   break;
     case GeneralPurposeWatchMsg:        SendMsgToQ(BACKGROUND_QINDEX,&pMsg); break;
     case ButtonEventMsg:                SendMsgToQ(SPP_TASK_QINDEX,&pMsg);   break;
-    case WriteBuffer:                   SendMsgToQ(SRAM_QINDEX,&pMsg);       break;
+    case WriteBuffer:                   SendMsgToQ(DISPLAY_QINDEX,&pMsg);    break;
     case ConfigureMode:                 SendMsgToQ(DISPLAY_QINDEX,&pMsg);    break;
     case ConfigureIdleBufferSize:       SendMsgToQ(DISPLAY_QINDEX,&pMsg);    break;
-    case UpdateDisplay:                 SendMsgToQ(SRAM_QINDEX,&pMsg); break;
+    case UpdateDisplay:                 SendMsgToQ(DISPLAY_QINDEX,&pMsg);    break;
     case LoadTemplate:                  SendMsgToQ(SRAM_QINDEX,&pMsg); break;
     case UpdateMyDisplaySram:           SendMsgToQ(SRAM_QINDEX,&pMsg); break;
     case UpdateMyDisplayLcd:            SendMsgToQ(LCD_TASK_QINDEX,&pMsg);   break;

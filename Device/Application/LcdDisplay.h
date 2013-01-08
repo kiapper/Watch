@@ -1,10 +1,10 @@
 //==============================================================================
 //  Copyright 2011 Meta Watch Ltd. - http://www.MetaWatch.org/
-// 
+//
 //  Licensed under the Meta Watch License, Version 1.0 (the "License");
 //  you may not use this file except in compliance with the License.
 //  You may obtain a copy of the License at
-//  
+//
 //      http://www.MetaWatch.org/licenses/license-1.0.html
 //
 //  Unless required by applicable law or agreed to in writing, software
@@ -39,11 +39,11 @@ void InitializeDisplayTask(void);
 
 #define WATCH_CONTROLS_TOP       ( 0 )
 #define PHONE_CONTROLS_TOP       ( 1 )
-#define IDLE_BUFFER_CONFIG_MASK  ( BIT0 )
+#define IDLE_BUFFER_CONFIG_MASK  ( 0x01 )
 
 
 /*! The phone can control all of the idle buffer or the bottom 2/3.
- * 
+ *
  * \return character indicating who controls top third of screen.  When it is
  * zero the watch controls the top.
  */
@@ -53,8 +53,8 @@ unsigned char GetIdleBufferConfiguration(void);
 #define NORMAL_DISPLAY ( 0 )
 #define INVERT_DISPLAY ( 1 )
 
-/*! 
- * \return 1 when display should be inverted 
+/*!
+ * \return 1 when display should be inverted
  */
 unsigned char QueryInvertDisplay(void);
 void ToggleIdleBufferInvert(void);

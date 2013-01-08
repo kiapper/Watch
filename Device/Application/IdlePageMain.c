@@ -449,8 +449,6 @@ static void DrawConnectionScreen()
 
 }
 
-
-
 static int IdleUpdateHandler(struct IdleInfo *Info)
 {
 	/* select between 1 second and 1 minute */
@@ -503,6 +501,7 @@ static int IdleUpdateHandler(struct IdleInfo *Info)
 	FillMyBuffer(STARTING_ROW, NUM_LCD_ROWS, 0x00);
 	DrawSimpleIdleScreen();
 	DrawConnectionScreen();
+
 	return IDLE_UPDATE_FULL_SCREEN;
 }
 

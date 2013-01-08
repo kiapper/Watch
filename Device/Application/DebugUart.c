@@ -18,7 +18,7 @@
 /* a buffer is used so that the code does not have to wait for the uart
  * to be empty
  */
-#define TX_BUFFER_SIZE  (255)
+#define TX_BUFFER_SIZE  (128)
 static unsigned char TxBuffer[TX_BUFFER_SIZE];
 static volatile unsigned char WriteIndex;
 static volatile unsigned char ReadIndex;
@@ -126,7 +126,7 @@ void InitDebugUart(void)
     xSemaphoreGive(UartMutex);
 }
 
-static void WriteTxBuffer_(signed char * const pBuf)
+static void WriteTxBuffer(signed char * const pBuf)
 {
     unsigned char i = 0;
     unsigned char LocalCount = TxCount;
@@ -153,7 +153,7 @@ static void WriteTxBuffer_(signed char * const pBuf)
 }
 
 /* block version of debug function */
-static void WriteTxBuffer(signed char * const pBuf)
+static void WriteTxBuffer_(signed char * const pBuf)
 {
     unsigned int i = 0;
 
@@ -303,10 +303,12 @@ void PrintSignedDecimalAndNewline(signed int Value)
 void PrintStringAndDecimal(signed char * const pString,unsigned int Value)
 {
     xSemaphoreTake(UartMutex,portMAX_DELAY);
+//    IntMasterDisable();
     WriteTxBuffer(pString);
     ToDecimalString(Value,ConversionString);
     WriteTxBuffer(ConversionString);
     WriteTxBuffer("\r\n");
+//    IntMasterEnable();
     xSemaphoreGive(UartMutex);
 }
 
@@ -378,10 +380,12 @@ void PrintStringSpaceAndThreeDecimals(signed char * const pString1,
 void PrintStringAndHex(signed char * const pString, unsigned int Value)
 {
     xSemaphoreTake(UartMutex, portMAX_DELAY);
+//    IntMasterDisable();
     WriteTxBuffer(pString);
     ToHexString(Value, ConversionString);
     WriteTxBuffer(ConversionString);
     WriteTxBuffer("\r\n");
+//    IntMasterEnable();
     xSemaphoreGive(UartMutex);
 }
 
