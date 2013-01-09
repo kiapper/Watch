@@ -727,6 +727,7 @@ void WriteLineToLcd(unsigned char *pMyDisplay, unsigned char row, unsigned char 
         for (j = 0; j < NUM_LCD_COL_BYTES; j++) {
             unsigned char pixel = line->Data[j];
 
+#if 0
             if (pixel & 0x80) RowPixels[4*j+0] |= 0xF0;
             if (pixel & 0x40) RowPixels[4*j+0] |= 0x0F;
             if (pixel & 0x20) RowPixels[4*j+1] |= 0xF0;
@@ -735,6 +736,16 @@ void WriteLineToLcd(unsigned char *pMyDisplay, unsigned char row, unsigned char 
             if (pixel & 0x04) RowPixels[4*j+2] |= 0x0F;
             if (pixel & 0x02) RowPixels[4*j+3] |= 0xF0;
             if (pixel & 0x01) RowPixels[4*j+3] |= 0x0F;
+#else
+            if (!(pixel & 0x80)) RowPixels[4*j+0] |= 0x80;
+            if (!(pixel & 0x40)) RowPixels[4*j+0] |= 0x08;
+            if (!(pixel & 0x20)) RowPixels[4*j+1] |= 0x80;
+            if (!(pixel & 0x10)) RowPixels[4*j+1] |= 0x08;
+            if (!(pixel & 0x08)) RowPixels[4*j+2] |= 0x80;
+            if (!(pixel & 0x04)) RowPixels[4*j+2] |= 0x08;
+            if (!(pixel & 0x02)) RowPixels[4*j+3] |= 0x80;
+            if (!(pixel & 0x01)) RowPixels[4*j+3] |= 0x08;
+#endif
         }
 
         RITWriteData(RowPixels, sizeof(RowPixels));

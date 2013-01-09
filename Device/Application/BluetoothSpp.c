@@ -60,6 +60,7 @@ static volatile unsigned char DataLinkEscape = 0;
 
 #define TxFIFOFull()            (HWREG(UART1_BASE + UART_O_FR) & UART_FR_TXFF)
 #define UART1_DATA_REG           HWREG(UART1_BASE + UART_O_DR)
+#define BtSppPutChar(c)          UARTCharPut(UART1_BASE, c)
 
 static void IncrementWriteIndex(void)
 {
@@ -223,13 +224,13 @@ static void SendHostMessage(tHostMsg* pMsg)
     unsigned char *pData = (unsigned char *)pMsg;
     unsigned char Esc = DATA_LINK_ESCAPE_VALUE;
 
-    WriteTxBuffer(pData, 1);
+    BtSppPutChar(pData[0]);
 
     for (i = 1; i < pMsg->Length; i++) {
         if (pData[i] == MSG_START_BYTE_VALUE || pData[i] == DATA_LINK_ESCAPE_VALUE) {
-            WriteTxBuffer(&Esc, 1);
+//            BtSppPutChar(Esc);    // ???
         }
-        WriteTxBuffer(&(pData[i]), 1);
+        BtSppPutChar(pData[i]);
     }
 }
 
@@ -239,7 +240,7 @@ static void BluetoothSppMessageHandler(tHostMsg* pMsg)
     eMessageType Type = (eMessageType)pMsg->Type;
     switch (Type) {
     case GetDeviceTypeResponse:
-//        SendHostMessage(pMsg);
+        SendHostMessage(pMsg);
         break;
     }
 }

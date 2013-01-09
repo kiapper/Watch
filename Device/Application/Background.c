@@ -12,6 +12,8 @@
 #include "DebugUart.h"
 #include "Statistics.h"
 
+#include "hal_rtc.h"
+
 static void BackgroundTask(void *pvParameters);
 
 static void BackgroundMessageHandler(tHostMsg* pMsg);
@@ -24,6 +26,7 @@ xTaskHandle xBkgTaskHandle;
 
 static tHostMsg* pBackgroundMsg;
 
+void SetVibrateModeHandler(tHostMsg* pMsg);
 /******************************************************************************/
 
 /*! Does the initialization and allocates the resources for the background task
@@ -92,6 +95,10 @@ static void BackgroundMessageHandler(tHostMsg* pMsg)
     RouteMsg(&pOutgoingMsg);
     break;
 
+  case SetVibrateMode:
+    SetVibrateModeHandler(pMsg);
+    break;
+
   case SetRealTimeClock:
     halRtcSet((tRtcHostMsgPayload*)pMsg->pPayload);
 
@@ -107,4 +114,9 @@ static void BackgroundMessageHandler(tHostMsg* pMsg)
     break;
   }
 
+}
+
+/* Handle the message from the host that starts a vibration event */
+void SetVibrateModeHandler(tHostMsg* pMsg)
+{
 }

@@ -55,4 +55,6 @@ void WriteFoo(unsigned char const * pFoo,
 void AddDecimalPoint8w10h(unsigned char RowOffset,
                                  unsigned char ColumnOffset);
 
+unsigned char BitRev8(unsigned char byte);
+
 #endif /*METAWATCH_LCD_BUFFER_H*/

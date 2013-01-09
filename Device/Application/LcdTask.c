@@ -15,7 +15,6 @@
 #define LCD_TASK_STACK_DEPTH     (configMINIMAL_STACK_SIZE + 120)
 #define LCD_TASK_TASK_PRIORITY   (tskIDLE_PRIORITY + 1)
 
-extern void WriteLineToLcd(unsigned char *pMyDisplay, unsigned char row, unsigned char totalLines);
 /******************************************************************************/
 static void LcdTask(void *pvParameters);
 static void LcdTaskMessageHandler(tHostMsg* pMsg);

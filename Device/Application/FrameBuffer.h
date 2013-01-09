@@ -3,6 +3,6 @@
 
 void InitialiazeFrameBuffer(void);
 void WriteBufferHandler(tHostMsg* pMsg);
-void UpdateDisplayHandler(tHostMsg* pMsg);
+unsigned char UpdateDisplayHandler(tHostMsg* pMsg);
 
 #endif /* FRAME_BUFFER_H */

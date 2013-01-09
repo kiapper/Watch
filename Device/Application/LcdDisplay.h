@@ -41,6 +41,8 @@ void InitializeDisplayTask(void);
 #define PHONE_CONTROLS_TOP       ( 1 )
 #define IDLE_BUFFER_CONFIG_MASK  ( 0x01 )
 
+#define FREE_BUFFER        ( 1 )
+#define DO_NOT_FREE_BUFFER ( 0 )
 
 /*! The phone can control all of the idle buffer or the bottom 2/3.
  *

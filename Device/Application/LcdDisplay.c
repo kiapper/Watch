@@ -14,6 +14,7 @@
 #include "IdlePage.h"
 #include "IdlePageMain.h"
 #include "FrameBuffer.h"
+#include "Utilities.h"
 #include "hal_lcd.h"
 
 #define DISPLAY_TASK_QUEUE_LENGTH   8
@@ -24,8 +25,9 @@ extern const unsigned char pMetaWatchSplash[NUM_LCD_ROWS*NUM_LCD_COL_BYTES];
 
 xTaskHandle DisplayHandle;
 
-static void DisplayQueueMessageHandler(tHostMsg* pMsg);
+static unsigned char DisplayQueueMessageHandler(tHostMsg* pMsg);
 static void ConfigureIdleBuferSizeHandler(tHostMsg* pMsg);
+static void ChangeModeHandler(tHostMsg* pMsg);
 void SendMyBufferToLcd(unsigned char TotalRows);
 
 static tHostMsg* pDisplayMsg;
@@ -48,13 +50,18 @@ static void InitializeIdleBufferInvert(void);
 
 void SaveIdleBufferInvert(void);
 
+/******************************************************************************/
+
+static unsigned char LastMode = IDLE_MODE;
+static unsigned char CurrentMode = IDLE_MODE;
+
 static unsigned char AllowConnectionStateChangeToUpdateScreen;
 
 /*! Display the startup image or Splash Screen */
 static void DisplayStartupScreen(void)
 {
     CopyRowsIntoMyBuffer(pMetaWatchSplash, STARTING_ROW, NUM_LCD_ROWS);
-//    PrepareMyBufferForLcd(STARTING_ROW, NUM_LCD_ROWS);
+    PrepareMyBufferForLcd(STARTING_ROW, NUM_LCD_ROWS);
     SendMyBufferToLcd(NUM_LCD_ROWS);
 }
 
@@ -97,6 +104,8 @@ void StopAllDisplayTimers(void)
  */
 static void DisplayTask(void *pvParameters)
 {
+    unsigned char FreeIt;
+
     if ( QueueHandles[DISPLAY_QINDEX] == 0 )
     {
         PrintString("Display Queue not created!\r\n");
@@ -121,20 +130,28 @@ static void DisplayTask(void *pvParameters)
         if ( pdTRUE == xQueueReceive(QueueHandles[DISPLAY_QINDEX],
                                 &pDisplayMsg, portMAX_DELAY) ) {
 
-            DisplayQueueMessageHandler(pDisplayMsg);
+            FreeIt = DisplayQueueMessageHandler(pDisplayMsg);
 
-            BPL_FreeMessageBuffer(&pDisplayMsg);
+            if (FreeIt == FREE_BUFFER) {
+                BPL_FreeMessageBuffer(&pDisplayMsg);
+            }
         }
     }
 }
 
 /*! Handle the messages routed to the display queue */
-static void DisplayQueueMessageHandler(tHostMsg* pMsg)
+static unsigned char DisplayQueueMessageHandler(tHostMsg* pMsg)
 {
+    unsigned char FreeMessageBuffer = FREE_BUFFER;
     unsigned char Type = pMsg->Type;
+
     switch (Type) {
     case IdleUpdate:
         IdlePageHandler(&IdlePageMain);
+        break;
+
+    case ChangeModeMsg:
+        ChangeModeHandler(pMsg);
         break;
 
     case ConfigureMode:
@@ -154,13 +171,15 @@ static void DisplayQueueMessageHandler(tHostMsg* pMsg)
         break;
 
     case UpdateDisplay:
-        UpdateDisplayHandler(pMsg);
+        FreeMessageBuffer = UpdateDisplayHandler(pMsg);
         break;
 
     default:
         PrintStringAndHex("<<Unhandled Message>> in Lcd Display Task: Type 0x", Type);
         break;
     }
+
+    return FreeMessageBuffer;
 }
 
 /******************************************************************************/
@@ -184,6 +203,76 @@ void InitializeDisplayTask(void)
               NULL,
               DISPLAY_TASK_PRIORITY,
               &DisplayHandle);
+}
+
+unsigned char QueryDisplayMode(void)
+{
+  return CurrentMode;
+}
+
+static void ChangeModeHandler(tHostMsg* pMsg)
+{
+    LastMode = CurrentMode;
+    CurrentMode = (pMsg->Options & MODE_MASK);
+
+    switch ( CurrentMode ) {
+    case IDLE_MODE:
+        /* this check is so that the watch apps don't mess up the timer */
+        if ( LastMode != CurrentMode ) {
+            /* idle update handler will stop all display clocks */
+            IdlePageHandler(&IdlePageMain);
+            PrintString("Changing mode to Idle\r\n");
+        } else {
+            PrintString("Already in Idle mode\r\n");
+        }
+        break;
+
+    case APPLICATION_MODE:
+        StopAllDisplayTimers();
+        SetupOneSecondTimer(ApplicationModeTimerId,
+                            QueryApplicationModeTimeout(),
+                            NO_REPEAT,
+                            ModeTimeoutMsg,
+                            APPLICATION_MODE);
+        /* don't start the timer if the timeout == 0
+         * this invites things that look like lock ups...
+         * it is preferred to make this a large value
+         */
+        if ( QueryApplicationModeTimeout() ) {
+            StartOneSecondTimer(ApplicationModeTimerId);
+        }
+        PrintString("Changing mode to Application\r\n");
+        break;
+
+    case NOTIFICATION_MODE:
+        StopAllDisplayTimers();
+        SetupOneSecondTimer(NotificationModeTimerId,
+                            QueryNotificationModeTimeout(),
+                            NO_REPEAT,
+                            ModeTimeoutMsg,
+                            NOTIFICATION_MODE);
+        if ( QueryNotificationModeTimeout() ) {
+            StartOneSecondTimer(NotificationModeTimerId);
+        }
+        PrintString("Changing mode to Notification\r\n");
+        break;
+
+    default:
+        break;
+    }
+
+    /*
+     * send a message to the Host indicating buffer update / mode change
+     * has completed (don't send message if it is just watch updating time ).
+     */
+    if ( LastMode != CurrentMode ) {
+        tHostMsg* pOutgoingMsg;
+        unsigned char data;
+        BPL_AllocMessageBuffer(&pOutgoingMsg);
+        data = (unsigned char)eScUpdateComplete;
+        UTL_BuildHstMsg(pOutgoingMsg, StatusChangeEvent, IDLE_MODE, &data, sizeof(data));
+        RouteMsg(&pOutgoingMsg);
+    }
 }
 
 unsigned char GetIdleBufferConfiguration(void)
