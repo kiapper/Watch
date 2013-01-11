@@ -123,7 +123,8 @@ void ClearFirstContact(void)
 
 unsigned char QueryFirstContact(void)
 {
-  return FirstContact;
+//  return FirstContact;
+    return 1;
 }
 
 /******************************************************************************/

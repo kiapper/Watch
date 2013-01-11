@@ -13,6 +13,8 @@
 #include "Display.h"
 #include "IdlePage.h"
 #include "IdlePageMain.h"
+#include "IdlePageGameOfLife.h"
+#include "IdlePageQrCode.h"
 #include "FrameBuffer.h"
 #include "Utilities.h"
 #include "hal_lcd.h"
@@ -49,6 +51,7 @@ static void InitialiazeIdleBufferConfig(void);
 static void InitializeIdleBufferInvert(void);
 
 void SaveIdleBufferInvert(void);
+
 
 /******************************************************************************/
 
@@ -152,6 +155,11 @@ static unsigned char DisplayQueueMessageHandler(tHostMsg* pMsg)
 
     case ChangeModeMsg:
         ChangeModeHandler(pMsg);
+        break;
+
+    case BarCode:
+        IdlePageHandler(&IdlePageQrCode);
+        IdlePageQrCodeButtonHandler(pMsg->Options);
         break;
 
     case ConfigureMode:

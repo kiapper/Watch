@@ -419,10 +419,6 @@ typedef struct
 #define NUMBER_OF_MODES   ( 4 )
 #define MODE_MASK         ( BUFFER_SELECT_MASK )
 
-#define BIT4    (0x1 << 4)
-#define BIT5    (0x1 << 5)
-#define BIT6    (0x1 << 6)
-
 #define UPDATE_COPY_MASK                       ( BIT4 )
 #define COPY_ACTIVE_TO_DRAW_DURING_UPDATE      ( BIT4 )
 #define NO_COPY_DURING_UPDATE                  ( 0    )

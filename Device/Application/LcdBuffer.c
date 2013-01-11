@@ -231,7 +231,7 @@ void WriteSpriteDigit(unsigned char Digit,
       BitMap = (pDigit[RowNumber] >> (ShiftAmount*-1));
     }
 
-    pMyBuffer[RowNumber+RowOffset].Data[left+ColumnOffset] = BitRev8(BitMap);
+    pMyBuffer[RowNumber+RowOffset].Data[left+ColumnOffset] = (BitMap);
   }
 }
 
@@ -314,16 +314,16 @@ void DisplayDataSeparator(unsigned char RowOffset,
                                  unsigned char ColumnOffset)
 {
   /* right most pixel is most significant bit */
-  pMyBuffer[RowOffset+0].Data[ColumnOffset+1] |= 0x04;
-  pMyBuffer[RowOffset+1].Data[ColumnOffset+1] |= 0x02;
-  pMyBuffer[RowOffset+2].Data[ColumnOffset+1] |= 0x02;
-  pMyBuffer[RowOffset+3].Data[ColumnOffset+1] |= 0x02;
-  pMyBuffer[RowOffset+4].Data[ColumnOffset+1] |= 0x02;
-  pMyBuffer[RowOffset+5].Data[ColumnOffset+1] |= 0x01;
-  pMyBuffer[RowOffset+6].Data[ColumnOffset+1] |= 0x01;
-  pMyBuffer[RowOffset+7].Data[ColumnOffset+1] |= 0x01;
-  pMyBuffer[RowOffset+8].Data[ColumnOffset+1] |= 0x01;
-  pMyBuffer[RowOffset+9].Data[ColumnOffset]   |= 0x80;
+  pMyBuffer[RowOffset+0].Data[ColumnOffset+1] |= BitRev8(0x04);
+  pMyBuffer[RowOffset+1].Data[ColumnOffset+1] |= BitRev8(0x02);
+  pMyBuffer[RowOffset+2].Data[ColumnOffset+1] |= BitRev8(0x02);
+  pMyBuffer[RowOffset+3].Data[ColumnOffset+1] |= BitRev8(0x02);
+  pMyBuffer[RowOffset+4].Data[ColumnOffset+1] |= BitRev8(0x02);
+  pMyBuffer[RowOffset+5].Data[ColumnOffset+1] |= BitRev8(0x01);
+  pMyBuffer[RowOffset+6].Data[ColumnOffset+1] |= BitRev8(0x01);
+  pMyBuffer[RowOffset+7].Data[ColumnOffset+1] |= BitRev8(0x01);
+  pMyBuffer[RowOffset+8].Data[ColumnOffset+1] |= BitRev8(0x01);
+  pMyBuffer[RowOffset+9].Data[ColumnOffset]   |= BitRev8(0x80);
 
 }
 

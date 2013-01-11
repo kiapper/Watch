@@ -3,6 +3,7 @@
 #include "FreeRTOS.h"
 #include "queue.h"
 
+#include "Defines.h"
 #include "Messages.h"
 #include "MessageQueues.h"
 #include "LcdDisplay.h"

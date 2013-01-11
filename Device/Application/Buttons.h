@@ -1,10 +1,10 @@
 //==============================================================================
 //  Copyright 2011 Meta Watch Ltd. - http://www.MetaWatch.org/
-// 
+//
 //  Licensed under the Meta Watch License, Version 1.0 (the "License");
 //  you may not use this file except in compliance with the License.
 //  You may obtain a copy of the License at
-//  
+//
 //      http://www.MetaWatch.org/licenses/license-1.0.html
 //
 //  Unless required by applicable law or agreed to in writing, software
@@ -17,7 +17,7 @@
 /******************************************************************************/
 /*! \file Buttons.h
 *
-* Along with the RTC and Command Task the Button functions process the buttons 
+* Along with the RTC and Command Task the Button functions process the buttons
 * and generate a message or event when buttons are pressed.
 *
 */
@@ -26,9 +26,11 @@
 #ifndef BUTTONS_H
 #define BUTTONS_H
 
+#include "Defines.h"
+
 // This is the number of consecutive samples by the RTC ISR that need to be
 // asserted for a button to be moved to the state
-#define BTN_ON_COUNT          2    
+#define BTN_ON_COUNT          2
 #define BTN_ONE_SEC_COUNT     32
 #define BTN_HOLD_COUNT        (2 * BTN_ONE_SEC_COUNT)
 #define BTN_LONG_HOLD_COUNT   (5 * BTN_ONE_SEC_COUNT)
@@ -48,22 +50,22 @@
 /*! Structure to consolidate the data used to manage the button state
  *
  * \param BtnFilter is for the leaky integrator filter
- * \param BtnState is the current button state 
+ * \param BtnState is the current button state
  * \param BtnHoldCounter is the amount of time the button has been pressed
  */
 typedef  struct
 {
-  unsigned char BtnFilter;          
-  unsigned char BtnState;           
-  unsigned int BtnHoldCounter;     
+  unsigned char BtnFilter;
+  unsigned char BtnState;
+  unsigned int BtnHoldCounter;
 
 } tButtonData;
 
 /*! Structure to hold the configuration of a button
  *
- * \param MaskTable holds the absolute mask and button press mask 
+ * \param MaskTable holds the absolute mask and button press mask
  * \param CallbackMsgType holds the callback message for each of the button press types
- * \param CallbackMsgOptions holds options 
+ * \param CallbackMsgOptions holds options
  */
 typedef struct
 {
@@ -91,9 +93,9 @@ typedef struct
 /*! Use to determine if the absolute mask should be set */
 #define ALL_BUTTON_EVENTS_MASKED ( BUTTON_PRESS_MASK | BUTTON_HOLD_MASK | \
    BUTTON_LONG_HOLD_MASK | BUTTON_IMMEDIATE_MASK )
-  
 
-/*! Initialize the pins associated with the buttons.  Initialize the 
+
+/*! Initialize the pins associated with the buttons.  Initialize the
  * memory structures used in the button state machine.
  *
  * The display task will finish initializing the buttons
@@ -137,7 +139,7 @@ void DisableButtonAction(unsigned char DisplayMode,
  * return [0] = display mode, [1] = ButtonIndex, [2] = MaskTable, [3] = CallbackMsgType,
  * [4] = callback msg options.
  *
- * \note This message is used to save the state of a button.  However, the 
+ * \note This message is used to save the state of a button.  However, the
  * phone should use application mode and not destroy the buttons used for idle mode.
  *
  */
@@ -145,5 +147,7 @@ void ReadButtonConfiguration(unsigned char DisplayMode,
                              unsigned char ButtonPressType,
                              unsigned char ButtonIndex,
                              unsigned char* pPayload);
+
+void ButtonPortIsr(void);
 
 #endif /* BUTTONS_H */

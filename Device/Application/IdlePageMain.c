@@ -3,6 +3,7 @@
 #include "task.h"
 #include "queue.h"
 
+#include "Defines.h"
 #include "Messages.h"
 #include "BufferPool.h"
 #include "Buttons.h"
@@ -445,7 +446,7 @@ static void DrawConnectionScreen()
   row = 85;
   col = 0;
   col = WriteString("Stack", row, col, ADD_SPACE_AT_END);
-  col = WriteString("unknown", row, col, ADD_SPACE_AT_END);
+  col = WriteString("n/a", row, col, ADD_SPACE_AT_END);
 
 }
 
@@ -483,7 +484,7 @@ static int IdleUpdateHandler(struct IdleInfo *Info)
 			/* only draw watch part */
 			FillMyBuffer(STARTING_ROW, WATCH_DRAWN_IDLE_BUFFER_ROWS, 0x00);
 			DrawIdleScreen();
-			PrepareMyBufferForLcd(STARTING_ROW, WATCH_DRAWN_IDLE_BUFFER_ROWS);
+//			PrepareMyBufferForLcd(STARTING_ROW, WATCH_DRAWN_IDLE_BUFFER_ROWS);
 			SendMyBufferToLcd(WATCH_DRAWN_IDLE_BUFFER_ROWS);
 		}
 
@@ -543,7 +544,35 @@ void IdlePageMainConfigButtons(struct IdleInfo *Info)
 
 	case Paired:
 	case Connected:
-        break;
+    EnableButtonAction(IDLE_MODE,
+                       SW_F_INDEX,
+                       BUTTON_STATE_IMMEDIATE,
+                       WatchStatusMsg,
+                       RESET_DISPLAY_TIMER);
+
+    EnableButtonAction(IDLE_MODE,
+                       SW_E_INDEX,
+                       BUTTON_STATE_IMMEDIATE,
+                       ListPairedDevicesMsg,
+                       NO_MSG_OPTIONS);
+
+    EnableButtonAction(IDLE_MODE,
+                       SW_C_INDEX,
+                       BUTTON_STATE_IMMEDIATE,
+                       MenuModeMsg,
+                       MENU_MODE_OPTION_PAGE1);
+
+    EnableButtonAction(IDLE_MODE,
+                       SW_B_INDEX,
+                       BUTTON_STATE_IMMEDIATE,
+                       ToggleSecondsMsg,
+                       TOGGLE_SECONDS_OPTIONS_UPDATE_IDLE);
+
+    EnableButtonAction(IDLE_MODE,
+                       SW_A_INDEX,
+                       BUTTON_STATE_IMMEDIATE,
+                       BarCode,
+                       RESET_DISPLAY_TIMER);
 	}
 }
 

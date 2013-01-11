@@ -535,6 +535,21 @@
               <FileType>1</FileType>
               <FilePath>..\Application\FrameBuffer.c</FilePath>
             </File>
+            <File>
+              <FileName>Buttons.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\Application\Buttons.c</FilePath>
+            </File>
+            <File>
+              <FileName>IdlePageQrCode.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\Application\IdlePageQrCode.c</FilePath>
+            </File>
+            <File>
+              <FileName>IdlePageGameOfLife.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\Application\IdlePageGameOfLife.c</FilePath>
+            </File>
           </Files>
         </Group>
         <Group>
@@ -559,6 +574,16 @@
               <FileName>rit128x96x4.c</FileName>
               <FileType>1</FileType>
               <FilePath>..\Hardware\rit128x96x4.c</FilePath>
+            </File>
+            <File>
+              <FileName>hal_buttons.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\Hardware\hal_buttons.c</FilePath>
+            </File>
+            <File>
+              <FileName>hal_timer.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\Hardware\hal_timer.c</FilePath>
             </File>
           </Files>
         </Group>

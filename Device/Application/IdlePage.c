@@ -6,14 +6,17 @@
 
 static struct IdleInfo Info;
 
+struct IdlePage const * CurrentPage = NULL;
+
 void InitIdlePage(int IdleModeTimerId, tLcdLine *buffer)
 {
   Info.buffer = buffer;
   Info.IdleModeTimerId = IdleModeTimerId;
 
   InitIdlePageMain();
+//  InitIdlePageGameOfLife();
+  InitIdlePageQrCode();
 }
-
 
 void IdlePageStart(struct IdlePage const * Page)
 {
@@ -30,8 +33,6 @@ void IdlePageStop(struct IdlePage const * Page)
 		Page->Stop(&Info);
 	}
 }
-
-struct IdlePage const * CurrentPage = NULL;
 
 const struct IdlePage * IdlePageCurrent(void)
 {

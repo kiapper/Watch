@@ -38,6 +38,7 @@
 #include "CommandTask.h"
 #include "Statistics.h"
 
+#include "hal_timer.h"
 
 #define COMMAND_QUEUE_LEN           32
 #define COMMAND_TASK_STACK_DEPTH	(configMINIMAL_STACK_SIZE + 30)
@@ -78,6 +79,8 @@ static void CommandTask(void *pvParameters)
         PrintString("CommandQueueHandle not created!\r\n");
     }
 
+    InitializeTimer();
+    InitializeButtons();
     InitializeOneSecondTimers();
 
     for(;;)
@@ -105,9 +108,11 @@ static void CommandHandler(eCmdType CmdType)
   {
 
   case ButtonDebounce:
+    EnableTimerUser(TIMER_BUTTON);
     break;
 
   case ButtonState:
+    ButtonStateHandler();
     break;
 
   case VibrationState:

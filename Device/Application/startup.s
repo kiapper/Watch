@@ -106,7 +106,8 @@ __Vectors
         DCD     IntDefaultHandler           ; GPIO Port B
         DCD     IntDefaultHandler           ; GPIO Port C
         DCD     IntDefaultHandler           ; GPIO Port D
-        DCD     IntDefaultHandler           ; GPIO Port E
+        EXTERN  GPIOEIntHandler
+        DCD     GPIOEIntHandler             ; GPIO Port E
         EXTERN  DebugUartIntHandler
         DCD     DebugUartIntHandler         ; UART0
         EXTERN  BtRxTxIntHandler
@@ -126,7 +127,8 @@ __Vectors
         EXTERN  Timer0IntHandler
         DCD     Timer0IntHandler            ; Timer 0A
         DCD     IntDefaultHandler           ; Timer 0B
-        DCD     IntDefaultHandler           ; Timer 1A
+        EXTERN  Timer1IntHandler
+        DCD     Timer1IntHandler            ; Timer 1A
         DCD     IntDefaultHandler           ; Timer 1B
         DCD     IntDefaultHandler           ; Timer 2A
         DCD     IntDefaultHandler           ; Timer 2B
@@ -135,7 +137,8 @@ __Vectors
         DCD     IntDefaultHandler           ; Comp 2
         DCD     IntDefaultHandler           ; System Control
         DCD     IntDefaultHandler           ; Flash Control
-        DCD     IntDefaultHandler           ; GPIO Port F
+        EXTERN  GPIOFIntHandler
+        DCD     GPIOFIntHandler             ; GPIO Port F
         DCD     IntDefaultHandler           ; GPIO Port G
         DCD     IntDefaultHandler           ; GPIO Port H
         DCD     IntDefaultHandler           ; UART2 Rx and Tx

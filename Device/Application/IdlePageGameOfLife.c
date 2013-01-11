@@ -1,8 +1,8 @@
 #include <string.h>
-#include "hal_lcd.h"
+
 #include "Messages.h" //IDLE_MODE + msgs
 #include "Buttons.h"  // BUTTON_STATE
-#include "hal_board_type.h"// SW_
+#include "Defines.h"// SW_
 #include "LcdDisplay.h"
 #include "OneSecondTimers.h"
 #include "IdlePage.h"
@@ -12,24 +12,28 @@
 
 void IdlePageGameOfLifeConfigButtons(struct IdleInfo *Info);
 int IdlePageGameOfLifeHandler(struct IdleInfo *Info);;
-const struct IdlePage IdlePageGameOfLife = {
-	.Start = NULL,
-	.Stop = NULL,
-	.Handler = IdlePageGameOfLifeHandler,
-	.ConfigButtons = IdlePageGameOfLifeConfigButtons, };
 
+struct IdlePage IdlePageGameOfLife;
+static tLcdLine tmp[96];
 
-tLcdLine tmp[96];
-
-unsigned char pix_get(tLcdLine *tmp, signed char x, signed char y)
+void InitIdlePageGameOfLife(void)
 {
+    IdlePageGameOfLife.Start = NULL;
+    IdlePageGameOfLife.Stop = NULL;
+    IdlePageGameOfLife.Handler = IdlePageGameOfLifeHandler;
+    IdlePageGameOfLife.ConfigButtons = IdlePageGameOfLifeConfigButtons;
+}
+
+static unsigned char pix_get(tLcdLine *tmp, signed char x, signed char y)
+{
+    unsigned char val;
 	if(x < 0 || x >=  HEIGHT) return 0;
 	if((y < 0) || (y >= WIDTH)) return 0;
-	unsigned char val = (1 << (x % 8));
+	val = (1 << (x % 8));
 	return (tmp[y].Data[(x / 8)] & val) == val;
 }
 
-void pix_set(tLcdLine *tmp, signed char x, signed char y)
+static void pix_set(tLcdLine *tmp, signed char x, signed char y)
 {
 	int index = (x / 8);
 	unsigned char val = 1 << (x % 8);
@@ -37,7 +41,7 @@ void pix_set(tLcdLine *tmp, signed char x, signed char y)
 }
 
 
-void live(tLcdLine *life)
+static void live(tLcdLine *life)
 {
 	unsigned char us, count;
 	signed char y,x;
@@ -82,7 +86,7 @@ void live(tLcdLine *life)
 
 static int IdlePageGameOfLifeHandler(struct IdleInfo *Info)
 {
-  
+
     StopAllDisplayTimers(); // Think we'll do this when we change pages???
     SetupOneSecondTimer(Info->IdleModeTimerId,
 	                     ONE_SECOND,
