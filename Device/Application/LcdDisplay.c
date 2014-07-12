@@ -82,7 +82,7 @@ static void AllocateDisplayTimers(void)
 static void SetupSplashScreenTimeout(void)
 {
   SetupOneSecondTimer(IdleModeTimerId,
-                      ONE_SECOND*3,
+                      ONE_SECOND*1,
                       NO_REPEAT,
                       SplashTimeoutMsg,
                       NO_MSG_OPTIONS);
@@ -114,7 +114,7 @@ static void DisplayTask(void *pvParameters)
         PrintString("Display Queue not created!\r\n");
     }
 
-    DisplayStartupScreen();
+//    DisplayStartupScreen();
 
     InitialiazeIdleBufferConfig();
     InitializeIdleBufferInvert();

@@ -1,7 +1,7 @@
-                                                                     
-                                                                     
-                                                                     
-                                             
+
+
+
+
  /*****************************************************************************
   *  Copyright (c) 2011 Meta Watch Ltd.                                       *
   *  www.MetaWatch.org                                                        *
@@ -49,14 +49,14 @@ public class Test extends Activity {
 		super.onCreate(savedInstanceState);
 		setTitle(getString(R.string.app_name) + " - " + getString(R.string.activitiy_title_tests));
 	}
-	
+
 	@Override
 	public boolean onCreateOptionsMenu(Menu menu) {
 		MenuInflater inflater = getMenuInflater();
 	    inflater.inflate(R.menu.test, menu);
 	    return true;
 	}
-	
+
 	@Override
 	public boolean onOptionsItemSelected(MenuItem item) {
 		switch (item.getItemId()) {
@@ -70,10 +70,10 @@ public class Test extends Activity {
 	    	if (MetaWatchService.watchType == WatchType.DIGITAL)
 	    		Application.startAppMode();
 	        return true;
-	    case R.id.sms_start:   
+	    case R.id.sms_start:
 	    	startSmsTestLoop(this);
 	        return true;
-	    case R.id.sms_stop:   
+	    case R.id.sms_stop:
 	    	stopSmsTestLoop();
 	        return true;
 	    case R.id.application_update:
@@ -84,29 +84,29 @@ public class Test extends Activity {
 	    	if (MetaWatchService.watchType == WatchType.DIGITAL)
 	    		Application.stopAppMode(this);
 	        return true;
-	    case R.id.sms:	   
+	    case R.id.sms:
 	    	NotificationBuilder.createSMS(this, "555-123-456", "Rights groups report systematic state violence is being unleashed on Bahrain's opposition movement.");
 	    	//NotificationBuilder.createSMS(this, "123-456-789", "Test SMS #" + "x");
 	        return true;
-	    case R.id.k9:	   
+	    case R.id.k9:
 	    	NotificationBuilder.createK9(this, "e@mail.com", "Subject line");
 	        return true;
-	    case R.id.alarm:	   
+	    case R.id.alarm:
 	    	NotificationBuilder.createAlarm(this);
 	        return true;
-	    case R.id.music:	   
+	    case R.id.music:
 	    	NotificationBuilder.createMusic(this, "Park", "Who is Aliandra");
 	        return true;
-	    case R.id.call_start:	   
+	    case R.id.call_start:
 	    	Call.startCall(this, "555-123-4567");
 	        return true;
-	    case R.id.call_stop:	   
+	    case R.id.call_stop:
 	    	Call.endCall(this);
 	        return true;
-	    case R.id.vibrate:	   
+	    case R.id.vibrate:
 	    	Protocol.vibrate(300, 500, 3);
 	        return true;
-	    case R.id.set_rtc:	   
+	    case R.id.set_rtc:
 	    	Protocol.sendRtcNow(this);
 	        return true;
 	    case R.id.load_template:
@@ -121,9 +121,12 @@ public class Test extends Activity {
 	    	if (MetaWatchService.watchType == WatchType.DIGITAL)
 	    		Protocol.updateDisplay(0);
 	        return true;
-	    case R.id.write_bufer:	 
+	    case R.id.write_bufer:
 	    	if (MetaWatchService.watchType == WatchType.DIGITAL)
 	    		Protocol.writeBuffer();
+	        return true;
+	    case R.id.get_device_type:
+	        Protocol.getDeviceType();
 	        return true;
 	    case R.id.test: {
 	    	//Protocol.test(this);
@@ -145,7 +148,7 @@ public class Test extends Activity {
 	        return super.onOptionsItemSelected(item);
 	    }
 	}
-	
+
 	void startSmsTestLoop(final Context context) {
 		if (MetaWatchService.testSmsLoop != null)
 			MetaWatchService.testSmsLoop.stop();
@@ -153,7 +156,7 @@ public class Test extends Activity {
 		Thread thread = new Thread(MetaWatchService.testSmsLoop);
 		thread.start();
 	}
-	
+
 	void stopSmsTestLoop() {
 		MetaWatchService.testSmsLoop.stop();
 	}

@@ -20,4 +20,5 @@
     <item android:id="@+id/activate_buffer" android:title="Activate Buffer (Idle) (LCD)"></item>
     <item android:id="@+id/update_display" android:title="Update Display (Idle) (LCD)"></item>    
     <item android:id="@+id/test" android:title="Test (OLED)"></item>
+    <item android:id="@+id/get_device_type" android:title="Get Device Type"></item>
 </menu>

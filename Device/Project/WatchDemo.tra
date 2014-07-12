@@ -46,7 +46,7 @@
 ### ADS-LD Output File: 'WatchDemo.axf'
 ### ADS-LD Command File: 'WatchDemo.lnp'
 ### Checking for dirty Components...
-### Creating CmdFile 'WatchDemo.lnp', Handle=0x0000016C
+### Creating CmdFile 'WatchDemo.lnp', Handle=0x00000250
 ### Writing '.lnp' file
 ### ADS-LD Command file 'WatchDemo.lnp' is ready.
 ### ADS-LD: About to start ADS-LD Thread.

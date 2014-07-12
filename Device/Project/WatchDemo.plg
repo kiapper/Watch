@@ -7,109 +7,9 @@ E:\Homebrew\Watch\Demo\Device\Project\WatchDemo.uvproj
 Project File Date:  01/11/2013
 
 <h2>Output:</h2>
-Build target 'Watch'
-compiling LcdDisplay.c...
-..\Application\LcdDisplay.c(158): error:  #20: identifier "CurrentIdlePage" is undefined
-..\Application\LcdDisplay.c(158): error:  #20: identifier "QrCodePage" is undefined
-..\Application\LcdDisplay.c(160): warning:  #223-D: function "IdlePageQrCodeInit" declared implicitly
-..\Application\LcdDisplay.c(58): warning:  #550-D: variable "AllowConnectionStateChangeToUpdateScreen" was set but never used
-compiling IdlePageGameOfLife.c...
-..\Application\IdlePageGameOfLife.c(5): error:  #5: cannot open source input file "hal_board_type.h": No such file or directory
-Target not created
-Build target 'Watch'
-compiling LcdDisplay.c...
-..\Application\LcdDisplay.c(158): error:  #20: identifier "CurrentIdlePage" is undefined
-..\Application\LcdDisplay.c(158): error:  #20: identifier "QrCodePage" is undefined
-..\Application\LcdDisplay.c(160): warning:  #223-D: function "IdlePageQrCodeInit" declared implicitly
-..\Application\LcdDisplay.c(58): warning:  #550-D: variable "AllowConnectionStateChangeToUpdateScreen" was set but never used
-compiling IdlePageGameOfLife.c...
-..\Application\IdlePageGameOfLife.c(16): error:  #29: expected an expression
-..\Application\IdlePageGameOfLife.c(17): error:  #29: expected an expression
-..\Application\IdlePageGameOfLife.c(18): error:  #29: expected an expression
-..\Application\IdlePageGameOfLife.c(19): error:  #29: expected an expression
-..\Application\IdlePageGameOfLife.c(28): error:  #268: declaration may not appear after executable statement in block
-..\Application\IdlePageGameOfLife.c(97): warning:  #177-D: function "IdlePageGameOfLifeConfigButtons" was declared but never referenced
-..\Application\IdlePageGameOfLife.c(83): warning:  #177-D: function "IdlePageGameOfLifeHandler" was declared but never referenced
-Target not created
-Build target 'Watch'
-compiling LcdDisplay.c...
-..\Application\LcdDisplay.c(158): error:  #20: identifier "CurrentIdlePage" is undefined
-..\Application\LcdDisplay.c(158): error:  #20: identifier "QrCodePage" is undefined
-..\Application\LcdDisplay.c(160): warning:  #223-D: function "IdlePageQrCodeInit" declared implicitly
-..\Application\LcdDisplay.c(58): warning:  #550-D: variable "AllowConnectionStateChangeToUpdateScreen" was set but never used
-compiling IdlePage.c...
-..\Application\IdlePage.c(15): warning:  #223-D: function "InitIdlePageGameOfLife" declared implicitly
-compiling IdlePageGameOfLife.c...
-..\Application\IdlePageGameOfLife.c(21): error:  #137: expression must be a modifiable lvalue
-..\Application\IdlePageGameOfLife.c(22): error:  #137: expression must be a modifiable lvalue
-..\Application\IdlePageGameOfLife.c(23): error:  #137: expression must be a modifiable lvalue
-..\Application\IdlePageGameOfLife.c(24): error:  #137: expression must be a modifiable lvalue
-..\Application\IdlePageGameOfLife.c(31): error:  #268: declaration may not appear after executable statement in block
-Target not created
-Build target 'Watch'
-compiling LcdDisplay.c...
-..\Application\LcdDisplay.c(158): error:  #20: identifier "CurrentIdlePage" is undefined
-..\Application\LcdDisplay.c(158): error:  #20: identifier "QrCodePage" is undefined
-..\Application\LcdDisplay.c(160): warning:  #223-D: function "IdlePageQrCodeInit" declared implicitly
-..\Application\LcdDisplay.c(58): warning:  #550-D: variable "AllowConnectionStateChangeToUpdateScreen" was set but never used
-compiling IdlePageGameOfLife.c...
-..\Application\IdlePageGameOfLife.c(21): error:  #137: expression must be a modifiable lvalue
-..\Application\IdlePageGameOfLife.c(22): error:  #137: expression must be a modifiable lvalue
-..\Application\IdlePageGameOfLife.c(23): error:  #137: expression must be a modifiable lvalue
-..\Application\IdlePageGameOfLife.c(24): error:  #137: expression must be a modifiable lvalue
-Target not created
-Build target 'Watch'
-compiling LcdDisplay.c...
-..\Application\LcdDisplay.c(158): error:  #20: identifier "CurrentIdlePage" is undefined
-..\Application\LcdDisplay.c(158): error:  #20: identifier "QrCodePage" is undefined
-..\Application\LcdDisplay.c(160): warning:  #223-D: function "IdlePageQrCodeInit" declared implicitly
-..\Application\LcdDisplay.c(58): warning:  #550-D: variable "AllowConnectionStateChangeToUpdateScreen" was set but never used
-compiling IdlePageGameOfLife.c...
-..\Application\IdlePageGameOfLife.c(16): warning:  #550-D: variable "IdlePageGameOfLife" was set but never used
-Target not created
-Build target 'Watch'
-compiling LcdDisplay.c...
-..\Application\LcdDisplay.c(158): error:  #20: identifier "CurrentIdlePage" is undefined
-..\Application\LcdDisplay.c(158): error:  #20: identifier "QrCodePage" is undefined
-..\Application\LcdDisplay.c(160): warning:  #223-D: function "IdlePageQrCodeInit" declared implicitly
-..\Application\LcdDisplay.c(58): warning:  #550-D: variable "AllowConnectionStateChangeToUpdateScreen" was set but never used
-compiling IdlePageGameOfLife.c...
-..\Application\IdlePageGameOfLife.c(16): warning:  #550-D: variable "IdlePageGameOfLife" was set but never used
-Target not created
-Build target 'Watch'
-compiling LcdDisplay.c...
-..\Application\LcdDisplay.c(54): error:  #20: identifier "etIdlePageMode" is undefined
-..\Application\LcdDisplay.c(161): error:  #20: identifier "QrCodePage" is undefined
-..\Application\LcdDisplay.c(163): warning:  #223-D: function "IdlePageQrCodeInit" declared implicitly
-..\Application\LcdDisplay.c(61): warning:  #550-D: variable "AllowConnectionStateChangeToUpdateScreen" was set but never used
-Target not created
-Build target 'Watch'
-compiling LcdDisplay.c...
-..\Application\LcdDisplay.c(159): error:  #1182: a declaration cannot have a label
-..\Application\LcdDisplay.c(162): warning:  #223-D: function "IdlePageQrCodeInit" declared implicitly
-..\Application\LcdDisplay.c(162): error:  #20: identifier "QrCodePage" is undefined
-..\Application\LcdDisplay.c(165): warning:  #223-D: function "IdlePageQrCodeButtonHandler" declared implicitly
-..\Application\LcdDisplay.c(59): warning:  #550-D: variable "AllowConnectionStateChangeToUpdateScreen" was set but never used
-Target not created
-Build target 'Watch'
-compiling LcdDisplay.c...
-..\Application\LcdDisplay.c(159): error:  #1182: a declaration cannot have a label
-..\Application\LcdDisplay.c(162): warning:  #223-D: function "IdlePageQrCodeInit" declared implicitly
-..\Application\LcdDisplay.c(165): warning:  #223-D: function "IdlePageQrCodeButtonHandler" declared implicitly
-..\Application\LcdDisplay.c(59): warning:  #550-D: variable "AllowConnectionStateChangeToUpdateScreen" was set but never used
-Target not created
-Build target 'Watch'
-compiling LcdDisplay.c...
-..\Application\LcdDisplay.c(162): warning:  #223-D: function "IdlePageQrCodeInit" declared implicitly
-..\Application\LcdDisplay.c(165): warning:  #223-D: function "IdlePageQrCodeButtonHandler" declared implicitly
-..\Application\LcdDisplay.c(59): warning:  #550-D: variable "AllowConnectionStateChangeToUpdateScreen" was set but never used
-linking...
-Program Size: Code=30148 RO-data=23092 RW-data=332 ZI-data=28316  
-"WatchDemo.axf" - 0 Error(s), 3 Warning(s).
-Build target 'Watch'
-linking...
-Program Size: Code=30148 RO-data=23092 RW-data=332 ZI-data=28316  
-"WatchDemo.axf" - 0 Error(s), 0 Warning(s).
+Load "E:\\Homebrew\\Watch\\Demo\\Device\\Project\\WatchDemo.AXF" 
+Connecting: Mode=JTAG, Speed=1000000Hz
+Connection failed!, error code=&d
 Load "E:\\Homebrew\\Watch\\Demo\\Device\\Project\\WatchDemo.AXF" 
 Connecting: Mode=JTAG, Speed=1000000Hz
 Full Chip Erase Done.
@@ -117,247 +17,188 @@ Erase Done.
 Programming Done.
 Verify OK.
 Build target 'Watch'
-compiling LcdDisplay.c...
-..\Application\LcdDisplay.c(162): warning:  #223-D: function "IdlePageQrCodeInit" declared implicitly
-..\Application\LcdDisplay.c(165): warning:  #223-D: function "IdlePageQrCodeButtonHandler" declared implicitly
-..\Application\LcdDisplay.c(59): warning:  #550-D: variable "AllowConnectionStateChangeToUpdateScreen" was set but never used
-linking...
-Program Size: Code=30160 RO-data=23092 RW-data=332 ZI-data=28316  
-"WatchDemo.axf" - 0 Error(s), 3 Warning(s).
-Load "E:\\Homebrew\\Watch\\Demo\\Device\\Project\\WatchDemo.AXF" 
-Connecting: Mode=JTAG, Speed=1000000Hz
-Full Chip Erase Done.
-Erase Done.
-Programming Done.
-Verify OK.
-Build target 'Watch'
-compiling LcdDisplay.c...
-..\Application\LcdDisplay.c(162): warning:  #223-D: function "IdlePageStart" declared implicitly
-..\Application\LcdDisplay.c(162): error:  #20: identifier "IdlePageGameOfLife" is undefined
-..\Application\LcdDisplay.c(165): error:  #20: identifier "IdlePageGameOfLife" is undefined
-..\Application\LcdDisplay.c(59): warning:  #550-D: variable "AllowConnectionStateChangeToUpdateScreen" was set but never used
-Target not created
-Build target 'Watch'
-compiling LcdDisplay.c...
-..\Application\LcdDisplay.c(16): error:  #5: cannot open source input file "IdlePamgeGameOfLive.h": No such file or directory
-Target not created
-Build target 'Watch'
-compiling LcdDisplay.c...
-..\Application\LcdDisplay.c(16): error:  #5: cannot open source input file "IdlePageGameOfLive.h": No such file or directory
-Target not created
-Build target 'Watch'
-compiling LcdDisplay.c...
-..\Application\LcdDisplay.c(163): warning:  #223-D: function "IdlePageStart" declared implicitly
-..\Application\LcdDisplay.c(60): warning:  #550-D: variable "AllowConnectionStateChangeToUpdateScreen" was set but never used
-linking...
-WatchDemo.axf: Error: L6218E: Undefined symbol IdlePageGameOfLife (referred from lcddisplay.o).
-Target not created
-Build target 'Watch'
-compiling IdlePageGameOfLife.c...
-linking...
-Program Size: Code=29804 RO-data=23076 RW-data=328 ZI-data=28312  
-"WatchDemo.axf" - 0 Error(s), 0 Warning(s).
-Build target 'Watch'
-linking...
-Program Size: Code=29804 RO-data=23076 RW-data=328 ZI-data=28312  
-"WatchDemo.axf" - 0 Error(s), 0 Warning(s).
-Load "E:\\Homebrew\\Watch\\Demo\\Device\\Project\\WatchDemo.AXF" 
-Connecting: Mode=JTAG, Speed=1000000Hz
-Full Chip Erase Done.
-Erase Done.
-Programming Done.
-Verify OK.
-Build target 'Watch'
-compiling LcdDisplay.c...
-..\Application\LcdDisplay.c(60): warning:  #550-D: variable "AllowConnectionStateChangeToUpdateScreen" was set but never used
-compiling IdlePage.c...
-..\Application\IdlePage.c(17): warning:  #223-D: function "InitIdlePageGameOfLife" declared implicitly
-linking...
-Program Size: Code=29764 RO-data=23076 RW-data=328 ZI-data=28312  
-"WatchDemo.axf" - 0 Error(s), 2 Warning(s).
-Load "E:\\Homebrew\\Watch\\Demo\\Device\\Project\\WatchDemo.AXF" 
-Connecting: Mode=JTAG, Speed=1000000Hz
-Full Chip Erase Done.
-Erase Done.
-Programming Done.
-Verify OK.
-Build target 'Watch'
-compiling IdlePage.c...
-..\Application\IdlePage.c(18): warning:  #223-D: function "InitIdlePageQrCode" declared implicitly
-compiling IdlePageQrCode.c...
-..\Application\IdlePageQrCode.c(50): error:  #70: incomplete type is not allowed
-..\Application\IdlePageQrCode.c(50): error:  #20: identifier "IdlePageQrCodeStart" is undefined
-..\Application\IdlePageQrCode.c(51): error:  #70: incomplete type is not allowed
-..\Application\IdlePageQrCode.c(52): error:  #70: incomplete type is not allowed
-..\Application\IdlePageQrCode.c(52): error:  #20: identifier "IdlePageQrCodeButtonHandler" is undefined
-..\Application\IdlePageQrCode.c(53): error:  #70: incomplete type is not allowed
-..\Application\IdlePageQrCode.c(53): error:  #20: identifier "IdlePageQrCodeConfigButtons" is undefined
-..\Application\IdlePageQrCode.c(46): error:  #235: variable "IdlePageOrCode" was declared with a never-completed type
-Target not created
-Build target 'Watch'
-compiling IdlePageQrCode.c...
-..\Application\IdlePageQrCode.c(50): error:  #70: incomplete type is not allowed
-..\Application\IdlePageQrCode.c(50): error:  #20: identifier "IdlePageQrCodeStart" is undefined
-..\Application\IdlePageQrCode.c(51): error:  #70: incomplete type is not allowed
-..\Application\IdlePageQrCode.c(52): error:  #70: incomplete type is not allowed
-..\Application\IdlePageQrCode.c(52): error:  #20: identifier "IdlePageQrCodeButtonHandler" is undefined
-..\Application\IdlePageQrCode.c(53): error:  #70: incomplete type is not allowed
-..\Application\IdlePageQrCode.c(53): error:  #20: identifier "IdlePageQrCodeConfigButtons" is undefined
-..\Application\IdlePageQrCode.c(46): error:  #235: variable "IdlePageOrCode" was declared with a never-completed type
-Target not created
-Build target 'Watch'
-compiling IdlePageQrCode.c...
-..\Application\IdlePageQrCode.c(50): error:  #70: incomplete type is not allowed
-..\Application\IdlePageQrCode.c(50): error:  #20: identifier "IdlePageQrCodeStart" is undefined
-..\Application\IdlePageQrCode.c(51): error:  #70: incomplete type is not allowed
-..\Application\IdlePageQrCode.c(52): error:  #70: incomplete type is not allowed
-..\Application\IdlePageQrCode.c(52): error:  #20: identifier "IdlePageQrCodeButtonHandler" is undefined
-..\Application\IdlePageQrCode.c(53): error:  #70: incomplete type is not allowed
-..\Application\IdlePageQrCode.c(53): error:  #20: identifier "IdlePageQrCodeConfigButtons" is undefined
-..\Application\IdlePageQrCode.c(56): warning:  #231-D: declaration is not visible outside of function
-..\Application\IdlePageQrCode.c(46): error:  #235: variable "IdlePageOrCode" was declared with a never-completed type
-Target not created
-Build target 'Watch'
-compiling IdlePageQrCode.c...
-..\Application\IdlePageQrCode.c(48): warning:  #231-D: declaration is not visible outside of function
-..\Application\IdlePageQrCode.c(52): error:  #70: incomplete type is not allowed
-..\Application\IdlePageQrCode.c(53): error:  #70: incomplete type is not allowed
-..\Application\IdlePageQrCode.c(54): error:  #70: incomplete type is not allowed
-..\Application\IdlePageQrCode.c(54): error:  #20: identifier "IdlePageQrCodeButtonHandler" is undefined
-..\Application\IdlePageQrCode.c(55): error:  #70: incomplete type is not allowed
-..\Application\IdlePageQrCode.c(55): error:  #20: identifier "IdlePageQrCodeConfigButtons" is undefined
-..\Application\IdlePageQrCode.c(58): warning:  #231-D: declaration is not visible outside of function
-..\Application\IdlePageQrCode.c(58): error:  #147-D: declaration is incompatible with "void IdlePageQrCodeStart(struct IdleInfo *)" (declared at line 48)
-..\Application\IdlePageQrCode.c(46): error:  #235: variable "IdlePageOrCode" was declared with a never-completed type
-Target not created
-Build target 'Watch'
-compiling IdlePageQrCode.c...
-..\Application\IdlePageQrCode.c(54): error:  #20: identifier "IdlePageQrCodeButtonHandler" is undefined
-..\Application\IdlePageQrCode.c(55): error:  #20: identifier "IdlePageQrCodeConfigButtons" is undefined
-Target not created
-Build target 'Watch'
-compiling IdlePageQrCode.c...
-..\Application\IdlePageQrCode.c(55): warning:  #513-D: a value of type "int (*)(unsigned char)" cannot be assigned to an entity of type "int (*)(struct IdleInfo *)"
-..\Application\IdlePageQrCode.c(56): error:  #20: identifier "IdlePageQrCodeConfigButtons" is undefined
-Target not created
-Build target 'Watch'
-compiling LcdDisplay.c...
-..\Application\LcdDisplay.c(160): error:  #20: identifier "IdlePageOrCode" is undefined
-..\Application\LcdDisplay.c(161): warning:  #223-D: function "IdlePageQrCodeButtonHandler" declared implicitly
-..\Application\LcdDisplay.c(161): error:  #136: struct "<unnamed>" has no field "options"
-..\Application\LcdDisplay.c(60): warning:  #550-D: variable "AllowConnectionStateChangeToUpdateScreen" was set but never used
-compiling IdlePageQrCode.c...
-..\Application\IdlePageQrCode.c(55): warning:  #513-D: a value of type "int (*)(unsigned char)" cannot be assigned to an entity of type "int (*)(struct IdleInfo *)"
-..\Application\IdlePageQrCode.c(56): error:  #20: identifier "IdlePageQrCodeConfigButtons" is undefined
-..\Application\IdlePageQrCode.c(75): error:  #147-D: declaration is incompatible with "int IdlePageQrCodeHandler(unsigned char)" (declared at line 49)
-Target not created
-Build target 'Watch'
-compiling LcdDisplay.c...
-..\Application\LcdDisplay.c(160): error:  #20: identifier "IdlePageQrCode" is undefined
-..\Application\LcdDisplay.c(161): warning:  #223-D: function "IdlePageQrCodeButtonHandler" declared implicitly
-..\Application\LcdDisplay.c(161): error:  #136: struct "<unnamed>" has no field "options"
-..\Application\LcdDisplay.c(60): warning:  #550-D: variable "AllowConnectionStateChangeToUpdateScreen" was set but never used
-compiling IdlePageQrCode.c...
-..\Application\IdlePageQrCode.c(53): error:  #20: identifier "IdlePageOrCode" is undefined
-..\Application\IdlePageQrCode.c(56): error:  #20: identifier "IdlePageQrCodeConfigButtons" is undefined
-..\Application\IdlePageQrCode.c(75): error:  #147-D: declaration is incompatible with "int IdlePageQrCodeHandler(unsigned char)" (declared at line 49)
-Target not created
-Build target 'Watch'
-compiling LcdDisplay.c...
-..\Application\LcdDisplay.c(160): error:  #20: identifier "IdlePageQrCode" is undefined
-..\Application\LcdDisplay.c(161): warning:  #223-D: function "IdlePageQrCodeButtonHandler" declared implicitly
-..\Application\LcdDisplay.c(60): warning:  #550-D: variable "AllowConnectionStateChangeToUpdateScreen" was set but never used
-compiling IdlePageQrCode.c...
-..\Application\IdlePageQrCode.c(53): error:  #20: identifier "IdlePageOrCode" is undefined
-..\Application\IdlePageQrCode.c(56): error:  #20: identifier "IdlePageQrCodeConfigButtons" is undefined
-..\Application\IdlePageQrCode.c(75): error:  #147-D: declaration is incompatible with "int IdlePageQrCodeHandler(unsigned char)" (declared at line 49)
-Target not created
-Build target 'Watch'
-compiling LcdDisplay.c...
-..\Application\IdlePageQrCode.h(4): warning:  #1295-D: Deprecated declaration IdlePageQrCodeInit - give arg types
-..\Application\LcdDisplay.c(161): error:  #20: identifier "IdlePageQrCode" is undefined
-..\Application\LcdDisplay.c(61): warning:  #550-D: variable "AllowConnectionStateChangeToUpdateScreen" was set but never used
-compiling IdlePageQrCode.c...
-..\Application\IdlePageQrCode.c(53): error:  #20: identifier "IdlePageOrCode" is undefined
-..\Application\IdlePageQrCode.c(56): error:  #20: identifier "IdlePageQrCodeConfigButtons" is undefined
-..\Application\IdlePageQrCode.c(75): error:  #147-D: declaration is incompatible with "int IdlePageQrCodeHandler(unsigned char)" (declared at line 49)
-Target not created
-Build target 'Watch'
-compiling LcdDisplay.c...
-..\Application\IdlePageQrCode.h(6): warning:  #1295-D: Deprecated declaration IdlePageQrCodeInit - give arg types
-..\Application\LcdDisplay.c(61): warning:  #550-D: variable "AllowConnectionStateChangeToUpdateScreen" was set but never used
-compiling IdlePageQrCode.c...
-..\Application\IdlePageQrCode.c(53): error:  #20: identifier "IdlePageOrCode" is undefined
-..\Application\IdlePageQrCode.c(56): error:  #20: identifier "IdlePageQrCodeConfigButtons" is undefined
-..\Application\IdlePageQrCode.c(75): error:  #147-D: declaration is incompatible with "int IdlePageQrCodeHandler(unsigned char)" (declared at line 49)
-Target not created
-Build target 'Watch'
-compiling IdlePageQrCode.c...
-..\Application\IdlePageQrCode.c(55): warning:  #513-D: a value of type "int (*)(unsigned char)" cannot be assigned to an entity of type "int (*)(struct IdleInfo *)"
-..\Application\IdlePageQrCode.c(56): error:  #20: identifier "IdlePageQrCodeConfigButtons" is undefined
-..\Application\IdlePageQrCode.c(75): error:  #147-D: declaration is incompatible with "int IdlePageQrCodeHandler(unsigned char)" (declared at line 49)
-Target not created
-Build target 'Watch'
-compiling IdlePageQrCode.c...
-..\Application\IdlePageQrCode.c(56): warning:  #513-D: a value of type "int (*)(unsigned char)" cannot be assigned to an entity of type "int (*)(struct IdleInfo *)"
-..\Application\IdlePageQrCode.c(57): warning:  #513-D: a value of type "void (*)(void)" cannot be assigned to an entity of type "void (*)(struct IdleInfo *)"
-..\Application\IdlePageQrCode.c(76): error:  #147-D: declaration is incompatible with "int IdlePageQrCodeHandler(unsigned char)" (declared at line 49)
-Target not created
-Build target 'Watch'
+compiling main.c...
+compiling LcdTask.c...
 compiling LcdDisplay.c...
 ..\Application\LcdDisplay.c(61): warning:  #550-D: variable "AllowConnectionStateChangeToUpdateScreen" was set but never used
-compiling IdlePageQrCode.c...
-..\Application\IdlePageQrCode.c(55): error:  #20: identifier "IdlePageQrCodeHandler" is undefined
-..\Application\IdlePageQrCode.c(56): warning:  #513-D: a value of type "void (*)(void)" cannot be assigned to an entity of type "void (*)(struct IdleInfo *)"
-..\Application\IdlePageQrCode.c(75): warning:  #177-D: function "IdlePageQrCodeHandler" was declared but never referenced
-Target not created
-Build target 'Watch'
-compiling IdlePageQrCode.c...
-..\Application\IdlePageQrCode.c(57): warning:  #513-D: a value of type "void (*)(void)" cannot be assigned to an entity of type "void (*)(struct IdleInfo *)"
-linking...
-Program Size: Code=29600 RO-data=23092 RW-data=332 ZI-data=26972  
-"WatchDemo.axf" - 0 Error(s), 1 Warning(s).
-Build target 'Watch'
-compiling IdlePageQrCode.c...
-..\Application\IdlePageQrCode.c(57): warning:  #513-D: a value of type "void (*)(const struct IdlePage *)" cannot be assigned to an entity of type "void (*)(struct IdleInfo *)"
-linking...
-Program Size: Code=29600 RO-data=23092 RW-data=332 ZI-data=26972  
-"WatchDemo.axf" - 0 Error(s), 1 Warning(s).
-Build target 'Watch'
-compiling IdlePageQrCode.c...
-..\Application\IdlePageQrCode.c(57): warning:  #513-D: a value of type "void (*)(struct IdlePage *)" cannot be assigned to an entity of type "void (*)(struct IdleInfo *)"
-linking...
-Program Size: Code=29600 RO-data=23092 RW-data=332 ZI-data=26972  
-"WatchDemo.axf" - 0 Error(s), 1 Warning(s).
-Build target 'Watch'
-compiling IdlePageQrCode.c...
-linking...
-Program Size: Code=29600 RO-data=23092 RW-data=332 ZI-data=26972  
-"WatchDemo.axf" - 0 Error(s), 0 Warning(s).
-Load "E:\\Homebrew\\Watch\\Demo\\Device\\Project\\WatchDemo.AXF" 
-Connecting: Mode=JTAG, Speed=1000000Hz
-Full Chip Erase Done.
-Erase Done.
-Programming Done.
-Verify OK.
-Build target 'Watch'
+..\Application\LcdDisplay.c(64): warning:  #177-D: function "DisplayStartupScreen" was declared but never referenced
+compiling MessageQueues.c...
+compiling BufferPool.c...
+compiling Statistics.c...
 compiling IdlePageMain.c...
 ..\Application\IdlePageMain.c(175): warning:  #223-D: function "QueryBatteryCharging" declared implicitly
 ..\Application\IdlePageMain.c(510): warning:  #177-D: function "DontChangeButtonConfiguration" was declared but never referenced
+compiling Display.c...
+compiling OneSecondTimers.c...
 compiling CommandTask.c...
 ..\Application\CommandTask.c(190): warning:  #177-D: variable "pTestMsg" was declared but never referenced
+compiling Utilities.c...
+..\Application\Utilities.c(152): error:  #136: struct "<unnamed>" has no field "crcLsb"
+..\Application\Utilities.c(153): error:  #136: struct "<unnamed>" has no field "crcMsb"
+..\Application\Utilities.c(175): error:  #136: struct "<unnamed>" has no field "crcLsb"
+..\Application\Utilities.c(176): error:  #136: struct "<unnamed>" has no field "crcMsb"
+compiling BluetoothSpp.c...
+..\Application\BluetoothSpp.c(219): error:  #20: identifier "ucData" is undefined
+..\Application\BluetoothSpp.c(220): error:  #20: identifier "BtSppRecvMsg" is undefined
+..\Application\BluetoothSpp.c(223): error:  #118: a void function may not return a value
+..\Application\BluetoothSpp.c(226): error:  #20: identifier "ucData" is undefined
+..\Application\BluetoothSpp.c(232): error:  #20: identifier "BtSppRecvMsg" is undefined
+..\Application\BluetoothSpp.c(238): error:  #118: a void function may not return a value
+..\Application\BluetoothSpp.c(242): error:  #20: identifier "BtSppRecvMsg" is undefined
+..\Application\BluetoothSpp.c(244): error:  #118: a void function may not return a value
+..\Application\BluetoothSpp.c(248): error:  #20: identifier "BtSppRecvMsg" is undefined
+..\Application\BluetoothSpp.c(250): error:  #118: a void function may not return a value
+..\Application\BluetoothSpp.c(254): error:  #20: identifier "BtSppRecvMsg" is undefined
+..\Application\BluetoothSpp.c(258): error:  #118: a void function may not return a value
+..\Application\BluetoothSpp.c(261): error:  #118: a void function may not return a value
+..\Application\BluetoothSpp.c(266): error:  #20: identifier "BtSppRecvMsg" is undefined
+..\Application\BluetoothSpp.c(271): error:  #118: a void function may not return a value
+..\Application\BluetoothSpp.c(273): error:  #118: a void function may not return a value
+..\Application\BluetoothSpp.c(277): error:  #118: a void function may not return a value
+..\Application\BluetoothSpp.c(280): error:  #118: a void function may not return a value
+..\Application\BluetoothSpp.c(310): warning:  #177-D: variable "Esc" was declared but never referenced
+..\Application\BluetoothSpp.c(44): warning:  #177-D: variable "BtTxMutex" was declared but never referenced
+..\Application\BluetoothSpp.c(121): warning:  #177-D: function "WriteTxBuffer_" was declared but never referenced
+..\Application\BluetoothSpp.c(147): warning:  #177-D: function "WriteTxBuffer" was declared but never referenced
+..\Application\BluetoothSpp.c(157): warning:  #177-D: function "BTRxTask_" was declared but never referenced
+compiling Background.c...
 compiling FrameBuffer.c...
 compiling Buttons.c...
 compiling IdlePageQrCode.c...
 compiling IdlePageGameOfLife.c...
-compiling hal_buttons.c...
+compiling hal_rtc.c...
 compiling hal_timer.c...
+Target not created
+Build target 'Watch'
+compiling Utilities.c...
+..\Application\Utilities.c(125): warning:  #177-D: variable "crc" was declared but never referenced
+..\Application\Utilities.c(176): error:  #136: struct "<unnamed>" has no field "crcLsb"
+..\Application\Utilities.c(177): error:  #136: struct "<unnamed>" has no field "crcMsb"
+compiling BluetoothSpp.c...
+..\Application\BluetoothSpp.c(219): error:  #20: identifier "ucData" is undefined
+..\Application\BluetoothSpp.c(220): error:  #20: identifier "BtSppRecvMsg" is undefined
+..\Application\BluetoothSpp.c(223): error:  #118: a void function may not return a value
+..\Application\BluetoothSpp.c(226): error:  #20: identifier "ucData" is undefined
+..\Application\BluetoothSpp.c(232): error:  #20: identifier "BtSppRecvMsg" is undefined
+..\Application\BluetoothSpp.c(238): error:  #118: a void function may not return a value
+..\Application\BluetoothSpp.c(242): error:  #20: identifier "BtSppRecvMsg" is undefined
+..\Application\BluetoothSpp.c(244): error:  #118: a void function may not return a value
+..\Application\BluetoothSpp.c(248): error:  #20: identifier "BtSppRecvMsg" is undefined
+..\Application\BluetoothSpp.c(250): error:  #118: a void function may not return a value
+..\Application\BluetoothSpp.c(254): error:  #20: identifier "BtSppRecvMsg" is undefined
+..\Application\BluetoothSpp.c(258): error:  #118: a void function may not return a value
+..\Application\BluetoothSpp.c(261): error:  #118: a void function may not return a value
+..\Application\BluetoothSpp.c(266): error:  #20: identifier "BtSppRecvMsg" is undefined
+..\Application\BluetoothSpp.c(271): error:  #118: a void function may not return a value
+..\Application\BluetoothSpp.c(273): error:  #118: a void function may not return a value
+..\Application\BluetoothSpp.c(277): error:  #118: a void function may not return a value
+..\Application\BluetoothSpp.c(280): error:  #118: a void function may not return a value
+..\Application\BluetoothSpp.c(310): warning:  #177-D: variable "Esc" was declared but never referenced
+..\Application\BluetoothSpp.c(44): warning:  #177-D: variable "BtTxMutex" was declared but never referenced
+..\Application\BluetoothSpp.c(121): warning:  #177-D: function "WriteTxBuffer_" was declared but never referenced
+..\Application\BluetoothSpp.c(147): warning:  #177-D: function "WriteTxBuffer" was declared but never referenced
+..\Application\BluetoothSpp.c(157): warning:  #177-D: function "BTRxTask_" was declared but never referenced
+Target not created
+Build target 'Watch'
+compiling Utilities.c...
+..\Application\Utilities.c(125): warning:  #177-D: variable "crc" was declared but never referenced
+..\Application\Utilities.c(161): warning:  #177-D: variable "crc" was declared but never referenced
+..\Application\Utilities.c(162): warning:  #177-D: variable "CrcIndex" was declared but never referenced
+compiling BluetoothSpp.c...
+..\Application\BluetoothSpp.c(219): error:  #20: identifier "ucData" is undefined
+..\Application\BluetoothSpp.c(220): error:  #20: identifier "BtSppRecvMsg" is undefined
+..\Application\BluetoothSpp.c(223): error:  #118: a void function may not return a value
+..\Application\BluetoothSpp.c(226): error:  #20: identifier "ucData" is undefined
+..\Application\BluetoothSpp.c(232): error:  #20: identifier "BtSppRecvMsg" is undefined
+..\Application\BluetoothSpp.c(238): error:  #118: a void function may not return a value
+..\Application\BluetoothSpp.c(242): error:  #20: identifier "BtSppRecvMsg" is undefined
+..\Application\BluetoothSpp.c(244): error:  #118: a void function may not return a value
+..\Application\BluetoothSpp.c(248): error:  #20: identifier "BtSppRecvMsg" is undefined
+..\Application\BluetoothSpp.c(250): error:  #118: a void function may not return a value
+..\Application\BluetoothSpp.c(254): error:  #20: identifier "BtSppRecvMsg" is undefined
+..\Application\BluetoothSpp.c(258): error:  #118: a void function may not return a value
+..\Application\BluetoothSpp.c(261): error:  #118: a void function may not return a value
+..\Application\BluetoothSpp.c(266): error:  #20: identifier "BtSppRecvMsg" is undefined
+..\Application\BluetoothSpp.c(271): error:  #118: a void function may not return a value
+..\Application\BluetoothSpp.c(273): error:  #118: a void function may not return a value
+..\Application\BluetoothSpp.c(277): error:  #118: a void function may not return a value
+..\Application\BluetoothSpp.c(280): error:  #118: a void function may not return a value
+..\Application\BluetoothSpp.c(310): warning:  #177-D: variable "Esc" was declared but never referenced
+..\Application\BluetoothSpp.c(44): warning:  #177-D: variable "BtTxMutex" was declared but never referenced
+..\Application\BluetoothSpp.c(121): warning:  #177-D: function "WriteTxBuffer_" was declared but never referenced
+..\Application\BluetoothSpp.c(147): warning:  #177-D: function "WriteTxBuffer" was declared but never referenced
+..\Application\BluetoothSpp.c(157): warning:  #177-D: function "BTRxTask_" was declared but never referenced
+Target not created
+Build target 'Watch'
+compiling BluetoothSpp.c...
+..\Application\BluetoothSpp.c(219): error:  #20: identifier "ucData" is undefined
+..\Application\BluetoothSpp.c(225): error:  #118: a void function may not return a value
+..\Application\BluetoothSpp.c(240): error:  #118: a void function may not return a value
+..\Application\BluetoothSpp.c(246): error:  #118: a void function may not return a value
+..\Application\BluetoothSpp.c(252): error:  #118: a void function may not return a value
+..\Application\BluetoothSpp.c(260): error:  #118: a void function may not return a value
+..\Application\BluetoothSpp.c(263): error:  #118: a void function may not return a value
+..\Application\BluetoothSpp.c(273): error:  #118: a void function may not return a value
+..\Application\BluetoothSpp.c(275): error:  #118: a void function may not return a value
+..\Application\BluetoothSpp.c(279): error:  #118: a void function may not return a value
+..\Application\BluetoothSpp.c(282): error:  #118: a void function may not return a value
+..\Application\BluetoothSpp.c(313): warning:  #177-D: variable "Esc" was declared but never referenced
+..\Application\BluetoothSpp.c(44): warning:  #177-D: variable "BtTxMutex" was declared but never referenced
+..\Application\BluetoothSpp.c(121): warning:  #177-D: function "WriteTxBuffer_" was declared but never referenced
+..\Application\BluetoothSpp.c(147): warning:  #177-D: function "WriteTxBuffer" was declared but never referenced
+Target not created
+Build target 'Watch'
+compiling BluetoothSpp.c...
+..\Application\BluetoothSpp.c(227): error:  #118: a void function may not return a value
+..\Application\BluetoothSpp.c(242): error:  #118: a void function may not return a value
+..\Application\BluetoothSpp.c(248): error:  #118: a void function may not return a value
+..\Application\BluetoothSpp.c(254): error:  #118: a void function may not return a value
+..\Application\BluetoothSpp.c(262): error:  #118: a void function may not return a value
+..\Application\BluetoothSpp.c(265): error:  #118: a void function may not return a value
+..\Application\BluetoothSpp.c(275): error:  #118: a void function may not return a value
+..\Application\BluetoothSpp.c(277): error:  #118: a void function may not return a value
+..\Application\BluetoothSpp.c(281): error:  #118: a void function may not return a value
+..\Application\BluetoothSpp.c(284): error:  #118: a void function may not return a value
+..\Application\BluetoothSpp.c(315): warning:  #177-D: variable "Esc" was declared but never referenced
+..\Application\BluetoothSpp.c(44): warning:  #177-D: variable "BtTxMutex" was declared but never referenced
+..\Application\BluetoothSpp.c(121): warning:  #177-D: function "WriteTxBuffer_" was declared but never referenced
+..\Application\BluetoothSpp.c(147): warning:  #177-D: function "WriteTxBuffer" was declared but never referenced
+Target not created
+Build target 'Watch'
+compiling BluetoothSpp.c...
+..\Application\BluetoothSpp.c(265): error:  #118: a void function may not return a value
+..\Application\BluetoothSpp.c(275): error:  #118: a void function may not return a value
+..\Application\BluetoothSpp.c(315): warning:  #177-D: variable "Esc" was declared but never referenced
+..\Application\BluetoothSpp.c(44): warning:  #177-D: variable "BtTxMutex" was declared but never referenced
+..\Application\BluetoothSpp.c(121): warning:  #177-D: function "WriteTxBuffer_" was declared but never referenced
+..\Application\BluetoothSpp.c(147): warning:  #177-D: function "WriteTxBuffer" was declared but never referenced
+Target not created
+Build target 'Watch'
+compiling BluetoothSpp.c...
+..\Application\BluetoothSpp.c(271): error:  #20: identifier "i" is undefined
+..\Application\BluetoothSpp.c(272): error:  #20: identifier "pMsgRecvBuffer" is undefined
+..\Application\BluetoothSpp.c(293): error:  #20: identifier "i" is undefined
+..\Application\BluetoothSpp.c(294): error:  #20: identifier "pMsgRecvBuffer" is undefined
+..\Application\BluetoothSpp.c(339): warning:  #177-D: variable "Esc" was declared but never referenced
+..\Application\BluetoothSpp.c(44): warning:  #177-D: variable "BtTxMutex" was declared but never referenced
+..\Application\BluetoothSpp.c(121): warning:  #177-D: function "WriteTxBuffer_" was declared but never referenced
+..\Application\BluetoothSpp.c(147): warning:  #177-D: function "WriteTxBuffer" was declared but never referenced
+Target not created
+Build target 'Watch'
+compiling BluetoothSpp.c...
+..\Application\BluetoothSpp.c(272): error:  #20: identifier "pMsgRecvBuffer" is undefined
+..\Application\BluetoothSpp.c(291): error:  #20: identifier "pMsgRecvBuffer" is undefined
+..\Application\BluetoothSpp.c(336): warning:  #177-D: variable "Esc" was declared but never referenced
+..\Application\BluetoothSpp.c(44): warning:  #177-D: variable "BtTxMutex" was declared but never referenced
+..\Application\BluetoothSpp.c(121): warning:  #177-D: function "WriteTxBuffer_" was declared but never referenced
+..\Application\BluetoothSpp.c(147): warning:  #177-D: function "WriteTxBuffer" was declared but never referenced
+Target not created
+Build target 'Watch'
+compiling BluetoothSpp.c...
+..\Application\BluetoothSpp.c(337): warning:  #177-D: variable "Esc" was declared but never referenced
+..\Application\BluetoothSpp.c(44): warning:  #177-D: variable "BtTxMutex" was declared but never referenced
+..\Application\BluetoothSpp.c(121): warning:  #177-D: function "WriteTxBuffer_" was declared but never referenced
+..\Application\BluetoothSpp.c(147): warning:  #177-D: function "WriteTxBuffer" was declared but never referenced
 linking...
-Program Size: Code=29600 RO-data=23092 RW-data=332 ZI-data=26972  
-"WatchDemo.axf" - 0 Error(s), 3 Warning(s).
-Load "E:\\Homebrew\\Watch\\Demo\\Device\\Project\\WatchDemo.AXF" 
-Connecting: Mode=JTAG, Speed=1000000Hz
-Full Chip Erase Done.
-Erase Done.
-Programming Done.
-Verify OK.
+Program Size: Code=29684 RO-data=22580 RW-data=336 ZI-data=26968  
+"WatchDemo.axf" - 0 Error(s), 4 Warning(s).
